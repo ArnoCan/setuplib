@@ -15,24 +15,24 @@ The targeted users are mainly developers, advanced users, and system administrat
 
 **Online documentation**:
 
-* https://pysetuplib.sourceforge.io/
+* https://setuplib.sourceforge.io/
 
 **Runtime-Repository**:
 
-* PyPI: https://pypi.org/project/pysetuplib/
+* PyPI: https://pypi.org/project/setuplib/
 
   Install: *pip install setuplib*, see also section 'Install' of the online documentation.
 
 
 **Downloads**:
 
-* sourceforge.net: https://sourceforge.net/projects/pysetuplib/files/
+* sourceforge.net: https://sourceforge.net/projects/setuplib/files/
 
-* bitbucket.org: https://bitbucket.org/acue/pysetuplib
+* bitbucket.org: https://bitbucket.org/acue/setuplib
 
-* github.com: https://github.com/ArnoCan/pysetuplib/
+* github.com: https://github.com/ArnoCan/setuplib/
 
-* pypi.org: https://pypi.org/project/pysetuplib/
+* pypi.org: https://pypi.org/project/setuplib/
 
 
 Project Data
@@ -44,7 +44,7 @@ Project Data
 
 * VERSION: 00.01
 
-* RELEASE: 00.01.006
+* RELEASE: 00.01.007
 
 * STATUS: beta
 

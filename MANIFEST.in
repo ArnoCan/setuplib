@@ -9,4 +9,4 @@
 #include licenses-amendments.txt
 #include setup.cfg
 #include setup.py
-#include dosrc/pysetuplib-64x64.png
+#include dosrc/setuplib-64x64.png

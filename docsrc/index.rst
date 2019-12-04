@@ -280,11 +280,11 @@ Resources
 
 **Home**
 
-* Sourceforge.net: https://sourceforge.net/projects/pysetuplib/
+* Sourceforge.net: https://sourceforge.net/projects/setuplib/
 
 **Online Documents**
 
-* Sourceforge.net: https://pysetuplib.sourceforge.io/
+* Sourceforge.net: https://setuplib.sourceforge.io/
 
 **Licenses**
 
@@ -304,7 +304,7 @@ Resources
 
 **Downloads**
 
-* bitbucket.org: https://bitbucket.org/acue/pysetuplib/
+* bitbucket.org: https://bitbucket.org/acue/setuplib/
 
 * github.com: https://github.com/ArnoCan/setuplib/
 
