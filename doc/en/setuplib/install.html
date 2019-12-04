@@ -1,0 +1,1451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9. Install &mdash; setuplib  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. External References" href="references.html" />
+    <link rel="prev" title="8. Resources" href="index_part_resources.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.36
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Shortcuts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">SetupLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_cockpit.html">apidoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_apiref_scaled.html">apiref</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index_part_abstract.html">1. Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_platform_support.html">2. Platform Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_blueprint.html">3. Blueprint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setuplib_cli.html">4. Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_documents.html">5. Documents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_modules.html">6. Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_indices.html">7. Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_resources.html">8. Resources</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Install</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#license">9.1. License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">9.2. Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#online-help">9.3. Online Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-from-pypi-org">9.4. Install from PyPI.org</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">9.5. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-procedures-for-sources">9.6. Install Procedures for Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tested-sphinx-releases">9.7. Tested Sphinx Releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tested-platforms">9.8. Tested Platforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#standard-platforms">9.8.1. Standard Platforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#security-and-network">9.8.2. Security and Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#embedded-and-iot">9.8.3. Embedded and IoT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#windows-wsl-1-0">9.8.4. Windows WSL-1.0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#app-frameworks">9.8.5. App Frameworks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">10. External References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_license.html">11. Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Application</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/index.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">setuplib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>9. Install</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="install">
+<span id="id1"></span><h1>9. Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="license">
+<h2>9.1. License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="ModifiedArtisticLicense20.html#modified-artistic-license-20"><span class="std std-ref">Modified-Artistic-License-2.0</span></a> = <a class="reference internal" href="ModifiedArtisticLicense20.html#artistic-license-20"><span class="std std-ref">Artistic-License-2.0</span></a> + <a class="reference internal" href="ModifiedArtisticLicense20.html#licenses-amendments"><span class="std std-ref">Forced-Fairplay-Constraints</span></a></p>
+<ul class="simple">
+<li>Artistic-License-2.0(base license): <a class="reference internal" href="ModifiedArtisticLicense20.html#artistic-license-20"><span class="std std-ref">ArtisticLicense20</span></a></li>
+<li>Forced-Fairplay-Constraints(amendments): <a class="reference internal" href="ModifiedArtisticLicense20.html#licenses-amendments"><span class="std std-ref">licenses-amendments</span></a></li>
+</ul>
+<p>Copyright (C) 2018-2019 Arno-Can Uestuensoez &#64;Ingenieurbuero Arno-Can Uestuensoez</p>
+</div>
+<div class="section" id="resources">
+<h2>9.2. Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="indextab">
+<div class="nonbreakheadtab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="18%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">prerequisite</th>
+<th class="head">reference</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Download</td>
+<td>PyPI</td>
+<td><a class="reference external" href="https://pypi.python.org/pypi/setuplib">https://pypi.python.org/pypi/setuplib</a></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td>Sourceforge</td>
+<td><a class="reference external" href="https://sourceforge.net/projects/setuplib/">https://sourceforge.net/projects/setuplib/</a></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td>github.com</td>
+<td><a class="reference external" href="https://github.com/ArnoCan/setuplib/">https://github.com/ArnoCan/setuplib/</a></td>
+</tr>
+<tr class="row-odd"><td>Documents</td>
+<td>sourceforge</td>
+<td><a class="reference external" href="https://setuplib.sourceforge.io/">https://setuplib.sourceforge.io/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div></blockquote>
+</div>
+<div class="section" id="online-help">
+<h2>9.3. Online Help<a class="headerlink" href="#online-help" title="Permalink to this headline">¶</a></h2>
+<p>For help on extensions to standard options call online context-help:</p>
+<blockquote>
+<div><pre class="literal-block">
+python setup.py <strong>--help-setuplib</strong>
+</pre>
+</div></blockquote>
+</div>
+<div class="section" id="install-from-pypi-org">
+<h2>9.4. Install from PyPI.org<a class="headerlink" href="#install-from-pypi-org" title="Permalink to this headline">¶</a></h2>
+<p>Install from PyPI.org by calling:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">setuplib</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Once installed any supported implementation will work.</p>
+<p>The runtime package is distinct from the source package, which is also called the SDK - Sofware Developemnt Kit.
+The prerequisites of both are frequently slightly different.
+For the <em>SDK</em> and the installation from sources including offline-installation see following sections.</p>
+</div>
+<div class="section" id="prerequisites">
+<span id="install-prerequisites"></span><h2>9.5. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="indextab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="26%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">prerequisite</th>
+<th class="head">reference</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Runtime</td>
+<td>Python Syntax</td>
+<td>Python2.7+, Python3.5+,</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">&#160;</td>
+<td rowspan="3">Python Distributions</td>
+<td rowspan="3"><p class="first">CPython, PyPy, Jython, IPython, IronPython</p>
+<p>MicroPython, CircuitPython</p>
+<p class="last">Jython is verified with: jdk-8u131, jdk-8u202, jdk-11u2</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="22">&#160;</td>
+<td rowspan="13">OS-Server/WS/Notebook</td>
+<td rowspan="13"><p class="first">AlpineLinux, ArchLinux, CentOS, Debian, Fedora,</p>
+<p>Gentoo, LinuxMint, OpenSUSE, OracleLinux, RHEL,</p>
+<p>Slackware, SLES, Ubuntu</p>
+<p>Minix3</p>
+<p>FreeBSD, NetBSD, OpenBSD</p>
+<p>DragonFlyBSD, GostBSD, NomadBSD, TrueOS</p>
+<p>SnowLeopard</p>
+<p>Solaris(10, 11)</p>
+<p>Cygwin</p>
+<p>ReactOS</p>
+<p>Windows10, Windows8.1, Windows7, WindowsXP, W2000WS</p>
+<p>Windows2019, Windows2016</p>
+<p class="last">Windows2012, Windows2008, Windows2000</p>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2">OS-Special</td>
+<td rowspan="2"><p class="first">OpenWRT, KaliLinux, pfSense</p>
+<p class="last">BlackArch, ParrotOS, Pentoo</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="4">OS-Devices-altarch - ARM</td>
+<td rowspan="4"><p class="first">AlpineLinux, ArchLinux, Armbian, BlackArchLinux, CentOS,</p>
+<p>KaliLinux, OpenWRT, ParrotOS, Raspbian</p>
+<p>FreeBSD, NetBSD, OpenBSD</p>
+<p class="last">Windows10IoT</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="3">Soon / TBD</td>
+<td rowspan="3"><p class="first">VMWare-ESXi, XenServer, KVM, Docker, Kubernetes, OpenShift</p>
+<p>Hyper-V-2016, Hyper-V-2012, Hyper-V-2008</p>
+<p class="last">AWS, Azure, Google-Cloud, IBM-Cloud</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="4">Packages</td>
+<td>Python</td>
+<td>pyfilesysobjects, pyplatformids, PyPythonids
+(jsonschema), (ujson/ultrajson)</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">Jython</td>
+<td rowspan="3"><p class="first">Supports Java integration, tested with:</p>
+<p>rte/jdk-8u131, rte/jdk-8u202, rte/jdk-11u2</p>
+<p class="last">on WindowsNT - optional: jna-5.0.0</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2">SDK</td>
+<td>Cygwin</td>
+<td>cygwinreg</td>
+</tr>
+<tr class="row-odd"><td>Python</td>
+<td>CPython 2.7+, CPython 3.5+</td>
+</tr>
+<tr class="row-even"><td rowspan="5">&#160;</td>
+<td rowspan="2">Java</td>
+<td rowspan="2"><p class="first">jdk &gt;= 1.8</p>
+<p class="last">on WindowsNT - mandatory: jna-5.0.0</p>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td>bash</td>
+<td>bash-4.x</td>
+</tr>
+<tr class="row-odd"><td>documents</td>
+<td>Sphinx &gt;=1.4, Epydoc &gt;=4 or Apydoc &gt;=4 (1)</td>
+</tr>
+<tr class="row-even"><td>OS</td>
+<td>Linux, Darwin, BSD, UNIX, Cygwin, Windows10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><p>(1): Epydoc(4.0) and Apydoc are going to be released to public soon.</p>
+</div></blockquote>
+</div>
+<div class="section" id="install-procedures-for-sources">
+<h2>9.6. Install Procedures for Sources<a class="headerlink" href="#install-procedures-for-sources" title="Permalink to this headline">¶</a></h2>
+<p>The installation process itself is verified for <em>CPython</em>, it requires the <em>setuptools</em> package and
+will than work with others too.</p>
+<p>From source:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Once installed any supported implementation will work.</p>
+<p>The runtime package is distinct from the source package, which is also called the SDK - Sofware Developemnt Kit.
+The prerequisites of both are frequently slightly different.</p>
+<blockquote>
+<div><div class="indextab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">environment</th>
+<th class="head">description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="6">Runtime</td>
+<td rowspan="6"><p class="first">Standard procedure online local install e.g. into virtual environment:</p>
+<ul class="simple">
+<li><em>python setup.py install</em></li>
+</ul>
+<p>Standard procedure online local install into user home:</p>
+<ul class="simple">
+<li><em>python setup.py install –user</em></li>
+</ul>
+<p>Custom procedure offline by:</p>
+<ul class="last simple">
+<li><em>python setup.py install –user –offline</em></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="6">SDK</td>
+<td rowspan="6"><p class="first">Required for document creation, add ‘–sdk’ option, checks build tools:</p>
+<ul class="simple">
+<li><em>python setup.py install –sdk</em></li>
+</ul>
+<p>Creation of documents, requires Sphinx including ‘sphinx-apidoc’,
+and Epydoc:</p>
+<ul class="simple">
+<li><em>python setup.py build_doc install_project_doc install_doc</em></li>
+</ul>
+<p>Compilation of Java modules for Jython, see help for suboptions.
+The package contains the compiled standard class files,
+this call could be used for alternative JRE.</p>
+<ul class="last simple">
+<li><em>python setup.py build_java</em></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"></tr>
+</tbody>
+</table>
+</div>
+</div></div></blockquote>
+</div>
+<div class="section" id="tested-sphinx-releases">
+<span id="tested-sphinx"></span><h2>9.7. Tested Sphinx Releases<a class="headerlink" href="#tested-sphinx-releases" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="teststatetab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="31%" />
+<col width="12%" />
+<col width="15%" />
+<col width="14%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Sphinx release</th>
+<th class="head">Python implementations</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+<th class="head">&#160;</th>
+</tr>
+<tr class="row-even"><th class="head">&#160;</th>
+<th class="head">CPython</th>
+<th class="head">IPython</th>
+<th class="head">IronPython</th>
+<th class="head">Jython(1)</th>
+<th class="head">PyPy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>1.6.6</td>
+<td>2.7.15</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>1.7.5</td>
+<td>2.7.16</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>2.2.0</td>
+<td>3.6.5, 3.7.x, 3.8.x</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>3.0.0</td>
+<td>3.7.0</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></blockquote>
+</div>
+<div class="section" id="tested-platforms">
+<span id="tested-os-python"></span><h2>9.8. Tested Platforms<a class="headerlink" href="#tested-platforms" title="Permalink to this headline">¶</a></h2>
+<p>Some default installations, e.g. <em>PyPy</em> on <em>OpenBSD6.3</em> do not work from the box, but
+perfectly when a specific virtual environment is created.
+Thus the number of actual tests is even larger.
+You may adapt it appropriately - or with some professional support from the author.</p>
+<div class="section" id="standard-platforms">
+<h3>9.8.1. Standard Platforms<a class="headerlink" href="#standard-platforms" title="Permalink to this headline">¶</a></h3>
+<p>The tested Python implementations on the supported OS on standard platforms are:</p>
+<blockquote>
+<div><div class="teststatetab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="13%" />
+<col width="10%" />
+<col width="14%" />
+<col width="13%" />
+<col width="7%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OS-distribution</th>
+<th class="head" colspan="6">Python implementations</th>
+</tr>
+<tr class="row-even"><th class="head">&#160;</th>
+<th class="head">CPython</th>
+<th class="head">IPython</th>
+<th class="head">IronPython</th>
+<th class="head">Jython(1)</th>
+<th class="head">PyPy</th>
+<th class="head">Stackless</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>AlpineLinux-3.9</td>
+<td>X</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>AlpineLinux-3.10</td>
+<td>X</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>ArchLinux-2019.04.01</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>CentOS-6</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>CentOS-7</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>CentOS-8</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>CoreOS</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Cygwin</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>Debian-9</td>
+<td>*</td>
+<td>X</td>
+<td>–</td>
+<td>X</td>
+<td>X</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Debian-10</td>
+<td>*</td>
+<td>X</td>
+<td>–</td>
+<td>X</td>
+<td>X</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>DragonFlyBSD-5.4.0</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Fedora-27</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>Fedora-28</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Fedora-29</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>Fedora-30</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>OK</td>
+<td>OK</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Fedora-31</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>FreeBSD-11.2</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Gentoo-12.1</td>
+<td>&#160;</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>GhostBSD-19.04</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>LinuxMint-19.1</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>Minix3</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>NetBSD-7.2</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>NetBSD-8.0</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>OpenBSD-6.4</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>OpenBSD-6.5</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>OpenSUSE-15.1</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>OpenSUSE-42.3</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>OracleLinux-OEL7</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>OracleLinux-OEL8</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>ReactOS-0.4.11</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>RHEL - RHEL7</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>RHEL - RHEL8</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>SLES</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Slackware-14.2</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>SnowLeopard</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>(–)</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Solaris10</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>Solaris11</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>(–)</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>TrueOS-18.12</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>Ubuntu-16.04</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Ubuntu-18.04</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>Ubuntu-18.10</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Ubuntu-19.04</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>WindowsXP</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Windows7Ultimate</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>Windows10Home</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Windows10Professional</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>Windows2008</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Windows2008R2</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>Windows2012</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Windows2012R2</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>Windows2016S</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Windows2016SE</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>Windows2019S</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Windows2019SE</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+<td>*</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><p><strong>(1)</strong>: Verified <em>Jython-2.7.0</em> with: jdk-8u131, jdk-8u181, jdk-8u202, jdk-11u2</p>
+</div></blockquote>
+<p>See also “Supported Standard OS and Dists” <a class="reference internal" href="references.html#platformids" id="id2">[platformids]</a>.</p>
+</div>
+<div class="section" id="security-and-network">
+<h3>9.8.2. Security and Network<a class="headerlink" href="#security-and-network" title="Permalink to this headline">¶</a></h3>
+<p>The tested Python implementations on the supported Security and Network  platforms
+including physical, virtual, and embedded platforms are:</p>
+<blockquote>
+<div><div class="teststatetab">
+<div class="nonbreakheadtab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="15%" />
+<col width="13%" />
+<col width="17%" />
+<col width="15%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OS-distribution</th>
+<th class="head" colspan="5">Python implementations</th>
+</tr>
+<tr class="row-even"><th class="head">&#160;</th>
+<th class="head">CPython</th>
+<th class="head">IPython</th>
+<th class="head">IronPython</th>
+<th class="head">Jython(1)</th>
+<th class="head">PyPy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>BlackArchLinux</td>
+<td>X</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>KaliLinux</td>
+<td>*</td>
+<td>X</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>KaliLinux ARM</td>
+<td>*</td>
+<td>X</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>OpenBSD</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>OpenBSD - ARM</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>OpenWRT</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>OpenWRT - ARM</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>OpenWRT - MIPS</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>ParrotOS</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Pentoo</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>pfsense</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><p><strong>(1)</strong>: Verified <em>Jython-2.7.0</em> with: jdk-8u131, jdk-8u202, jdk-11u2</p>
+</div></blockquote>
+<p>See also “Security and Network Systems” <a class="reference internal" href="references.html#platformids" id="id3">[platformids]</a>.</p>
+</div>
+<div class="section" id="embedded-and-iot">
+<h3>9.8.3. Embedded and IoT<a class="headerlink" href="#embedded-and-iot" title="Permalink to this headline">¶</a></h3>
+<p>The tested Python implementations on the supported OS on embedded and IoT platforms
+with alternative architecture are - RaspberryPI and Asus-TinkerBoard:</p>
+<blockquote>
+<div><div class="teststatetab">
+<div class="nonbreakheadtab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="15%" />
+<col width="13%" />
+<col width="17%" />
+<col width="15%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OS-distribution</th>
+<th class="head" colspan="5">Python implementations</th>
+</tr>
+<tr class="row-even"><th class="head">&#160;</th>
+<th class="head">CPython</th>
+<th class="head">IPython</th>
+<th class="head">IronPython</th>
+<th class="head">Jython(1)</th>
+<th class="head">PyPy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>AlpineLinux</td>
+<td>X</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>ArchLinux-altarch</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>Armbian</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>CentOS-7-altarch</td>
+<td>*</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>CircuitPython</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>Fedora</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>FreeBSD</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>MicroPython</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>NetBSD</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>–</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>OpenBSD</td>
+<td>*</td>
+<td>*</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-odd"><td>Raspbian</td>
+<td>*</td>
+<td>X</td>
+<td>–</td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr class="row-even"><td>Windows10IoT</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>*</td>
+<td>(*)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><p><strong>(1)</strong>: Verified <em>Jython-2.7.0</em> with: jdk-8u131, jdk-8u202, jdk-11u2</p>
+</div></blockquote>
+<p>See also “Embedded Systems and IoT” <a class="reference internal" href="references.html#platformids" id="id4">[platformids]</a>.</p>
+</div>
+<div class="section" id="windows-wsl-1-0">
+<h3>9.8.4. Windows WSL-1.0<a class="headerlink" href="#windows-wsl-1-0" title="Permalink to this headline">¶</a></h3>
+<p>The tested within WSL-1.0:</p>
+<blockquote>
+<div><div class="teststatetab">
+<div class="nonbreakheadtab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="12%" />
+<col width="10%" />
+<col width="20%" />
+<col width="16%" />
+<col width="12%" />
+<col width="6%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">OS-distribution</th>
+<th class="head" colspan="6">Python implementations</th>
+</tr>
+<tr class="row-even"><th class="head">&#160;</th>
+<th class="head">CPython</th>
+<th class="head">IPython</th>
+<th class="head">IronPython.exe(3)</th>
+<th class="head">IronPython(2)</th>
+<th class="head">Jython(1)</th>
+<th class="head">PyPy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>AlpineLinux</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Debian</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>*</td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr class="row-odd"><td>KaliLinux</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr class="row-even"><td>openSUSE</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+<tr class="row-odd"><td>SLES</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Ubuntu</td>
+<td>OK</td>
+<td>OK</td>
+<td>OK</td>
+<td>–</td>
+<td>OK</td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><p><strong>(1)</strong>: Verified <em>Jython-2.7.0</em> with: jdk-8u131, jdk-8u202, jdk-11u2</p>
+<p><strong>(2)</strong>: IronPython - Call of the native IronPython as an Linux executable, e.g. as pre-alpha fro Debian, see <a class="reference internal" href="references.html#ironpython" id="id5">[IronPython]</a>.</p>
+<dl class="docutils">
+<dt><strong>(3)</strong>: IronPython.exe - Call of the Windows EXE from Linux running within the WSL, see <a class="reference internal" href="references.html#winwsl" id="id6">[WINWSL]</a>.</dt>
+<dd>Executes within native <em>NT</em> environment, thus executes within runtime-context <em>ostype == RTE_NT</em>.</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="app-frameworks">
+<h3>9.8.5. App Frameworks<a class="headerlink" href="#app-frameworks" title="Permalink to this headline">¶</a></h3>
+<p>special test results are available soon</p>
+<blockquote>
+<div><div class="teststatetab">
+<div class="nonbreakheadtab">
+<div class="autocoltab"><table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="26%" />
+<col width="10%" />
+<col width="13%" />
+<col width="9%" />
+<col width="6%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Application Framework</th>
+<th class="head" colspan="5">Python implementations</th>
+</tr>
+<tr class="row-even"><th class="head">&#160;</th>
+<th class="head">CPython</th>
+<th class="head">IPython</th>
+<th class="head">IronPython</th>
+<th class="head">Jython</th>
+<th class="head">PyPy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>IBM WebSphere Application Server</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>*</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>JBoss Application Server</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>*</td>
+<td>–</td>
+</tr>
+<tr class="row-odd"><td>Oracle Weblogic Server</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>*</td>
+<td>–</td>
+</tr>
+<tr class="row-even"><td>Tomcat Server</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>*</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="references.html" class="btn btn-neutral float-right" title="10. External References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index_part_resources.html" class="btn btn-neutral float-left" title="8. Resources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
+      <span class="lastupdated">
+        Last updated on Dec 04, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

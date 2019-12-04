@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.3. setup.py &mdash; setuplib  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Indices and tables" href="index_part_indices.html" />
+    <link rel="prev" title="6.2. setuplib.setuplib" href="setuplib.setuplib.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.36
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Shortcuts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">SetupLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_cockpit.html">apidoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_apiref_scaled.html">apiref</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index_part_abstract.html">1. Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_platform_support.html">2. Platform Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_blueprint.html">3. Blueprint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setuplib_cli.html">4. Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_documents.html">5. Documents</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index_modules.html">6. Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setuplib.html">6.1. setuplib.__init__</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setuplib.setuplib.html">6.2. setuplib.setuplib</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.3. setup.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source">6.3.1. Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download">6.3.2. Download</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#license">6.3.3. License</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#copyright">6.3.4. Copyright</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_indices.html">7. Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_resources.html">8. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">9. Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">10. External References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_license.html">11. Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Application</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/index.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">setuplib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index_modules.html">6. Modules</a> &raquo;</li>
+        
+      <li>6.3. setup.py</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/setup_py_src.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setuppysrc">
+<span id="setup-py"></span><span id="id1"></span><h1>6.3. setup.py<a class="headerlink" href="#setuppysrc" title="Permalink to this headline">¶</a></h1>
+<p>The <em>setup.py</em> of the <em>setuplib</em> itself serves as a pattern for the provided libraries.</p>
+<div class="section" id="source">
+<h2>6.3.1. Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Distribute &#39;setuplib&#39;, the core library for extensions of *setuptools*.</span>
+<span class="sd">Provides detailed information on Python packages and their entry points.</span>
+
+<span class="sd">Additional local options for this *setup.py* module:</span>
+<span class="sd">   --sdk:</span>
+<span class="sd">       Requires sphinx, epydoc, and dot-graphics.</span>
+
+<span class="sd">   --no-install-requires: </span>
+<span class="sd">       Suppresses installation dependency checks,</span>
+<span class="sd">       requires appropriate PYTHONPATH.</span>
+
+<span class="sd">   --offline: </span>
+<span class="sd">       Sets online dependencies to offline, or ignores online</span>
+<span class="sd">       dependencies.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># optional remote debug</span>
+    <span class="kn">from</span> <span class="nn">rdbg</span> <span class="kn">import</span> <span class="n">start</span>        <span class="c1"># load a slim bootstrap module</span>
+    <span class="n">start</span><span class="o">.</span><span class="n">start_remote_debug</span><span class="p">()</span>    <span class="c1"># check whether &#39;--rdbg&#39; option is present, if so accomplish bootstrap</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">setuptools</span>
+
+<span class="c1">#</span>
+<span class="c1"># setup extension modules</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">yapyutils.files.utilities</span>
+
+
+<span class="c1">#***</span>
+<span class="c1"># the following parts are required as for the setuplib itself</span>
+<span class="c1"># others may use the entry points</span>
+<span class="c1">#***</span>
+
+<span class="c1"># setup library functions</span>
+<span class="kn">import</span> <span class="nn">setuplib.setuplib</span>
+
+<span class="c1">#***********************************************************************</span>
+<span class="c1"># REMARK:</span>
+<span class="c1">#   documents and regression tests</span>
+<span class="c1">#</span>
+<span class="c1">#   the classes are required here for setuplib only</span>
+<span class="c1">#   others should use the entry point, so do not need to import classes</span>
+<span class="c1">#</span>
+<span class="c1">#***********************************************************************</span>
+<span class="kn">import</span> <span class="nn">setupdocx.build_docx</span>
+<span class="kn">import</span> <span class="nn">setupdocx.dist_docx</span>
+<span class="kn">import</span> <span class="nn">setupdocx.install_docx</span>
+<span class="kn">import</span> <span class="nn">setupdocx.build_apiref</span>
+<span class="kn">import</span> <span class="nn">setupdocx.build_apidoc</span>
+
+<span class="c1"># unittests</span>
+<span class="kn">import</span> <span class="nn">setuptestx.testx</span>
+
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Arno-Can Uestuensoez&#39;</span>
+<span class="n">__author_email__</span> <span class="o">=</span> <span class="s1">&#39;acue_sf2@sourceforge.net&#39;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Artistic-License-2.0 + Forced-Fairplay-Constraints&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2015-2019 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez&quot;</span>
+<span class="n">__uuid__</span> <span class="o">=</span> <span class="s2">&quot;239b0bf7-674a-4f53-a646-119f591af806&quot;</span>
+
+<span class="n">__vers__</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%02d</span><span class="s2">.</span><span class="si">%02d</span><span class="s2">.</span><span class="si">%03d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">__vers__</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">__vers__</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">__vers__</span><span class="p">[</span><span class="mi">2</span><span class="p">],)</span>
+<span class="n">__release__</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.</span><span class="si">%d</span><span class="s2">.</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">__vers__</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">__vers__</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">__vers__</span><span class="p">[</span><span class="mi">2</span><span class="p">],)</span> <span class="o">+</span> <span class="s1">&#39;-rc0&#39;</span>
+<span class="n">__status__</span> <span class="o">=</span> <span class="s1">&#39;beta&#39;</span>
+
+
+<span class="n">__sdk</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="sd">&quot;&quot;&quot;Set by the option &quot;--sdk&quot;. Controls the installation environment.&quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="s1">&#39;--sdk&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+    <span class="n">__sdk</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;--sdk&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># required for various interfaces, thus just do it</span>
+<span class="n">_mypath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="sd">&quot;&quot;&quot;Path of this file.&quot;&quot;&quot;</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">_mypath</span><span class="p">))</span>
+
+
+<span class="c1">#--------------------------------------</span>
+<span class="c1">#</span>
+<span class="c1"># Package parameters for setuptools</span>
+<span class="c1">#</span>
+<span class="c1">#--------------------------------------</span>
+
+<span class="n">_name</span> <span class="o">=</span> <span class="s1">&#39;setuplib&#39;</span>
+<span class="sd">&quot;&quot;&quot;package name&quot;&quot;&quot;</span>
+
+<span class="n">__pkgname__</span> <span class="o">=</span> <span class="n">_name</span>
+<span class="sd">&quot;&quot;&quot;package name&quot;&quot;&quot;</span>
+
+<span class="n">_version</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.</span><span class="si">%d</span><span class="s2">.</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">__vers__</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">__vers__</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">__vers__</span><span class="p">[</span><span class="mi">2</span><span class="p">],)</span>
+<span class="sd">&quot;&quot;&quot;assembled version string&quot;&quot;&quot;</span>
+
+<span class="n">_author</span> <span class="o">=</span> <span class="n">__author__</span>
+<span class="sd">&quot;&quot;&quot;author of the package&quot;&quot;&quot;</span>
+
+<span class="n">_author_email</span> <span class="o">=</span> <span class="n">__author_email__</span>
+<span class="sd">&quot;&quot;&quot;author&#39;s email &quot;&quot;&quot;</span>
+
+<span class="n">_license</span> <span class="o">=</span> <span class="n">__license__</span>
+<span class="sd">&quot;&quot;&quot;license&quot;&quot;&quot;</span>
+
+<span class="c1">#_packages = setuptools.find_packages(&#39;setuplib&#39;)</span>
+<span class="n">_packages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;setuplib&#39;</span><span class="p">,]</span>
+<span class="sd">&quot;&quot;&quot;Python packages to be installed.&quot;&quot;&quot;</span>
+
+<span class="n">_packages_sdk</span> <span class="o">=</span> <span class="n">_packages</span>
+
+<span class="n">_scripts</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;Scripts to be installed.&quot;&quot;&quot;</span>
+
+<span class="n">_package_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;setuplib&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;README.md&#39;</span><span class="p">,</span> <span class="s1">&#39;ArtisticLicense20.html&#39;</span><span class="p">,</span> <span class="s1">&#39;licenses-amendments.txt&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+<span class="sd">&quot;&quot;&quot;Provided data of the package.&quot;&quot;&quot;</span>
+
+<span class="n">_url</span> <span class="o">=</span> <span class="s1">&#39;https://sourceforge.net/projects/setuplib/&#39;</span>
+<span class="sd">&quot;&quot;&quot;URL of this package&quot;&quot;&quot;</span>
+
+<span class="c1"># _download_url=&quot;https://github.com/ArnoCan/setuplib/&quot;</span>
+<span class="n">_download_url</span> <span class="o">=</span> <span class="s2">&quot;https://sourceforge.net/projects/setuplib/files/&quot;</span>
+
+
+<span class="n">_install_requires</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;pythonids &gt;= 0.1.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;yapyutils &gt;= 0.1.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;yapydata &gt;= 0.1.0&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sourceinfo &gt;= 0.1.0&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;prerequired non-standard packages&quot;&quot;&quot;</span>
+
+
+<span class="n">_description</span> <span class="o">=</span> <span class="s2">&quot;Support library functions for extensions and entry points of setuptools / distutils.&quot;</span>
+
+<span class="n">_README</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;README.md&#39;</span><span class="p">)</span>
+<span class="n">_long_description</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">_README</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;detailed description of this package&quot;&quot;&quot;</span>
+
+
+<span class="k">if</span> <span class="n">__sdk</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">sphinx_rtd_theme</span>  <span class="c1"># @UnusedImport</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="s2">&quot;WARNING: Cannot import package &#39;sphinx_rtd_theme&#39;, cannot create local &#39;ReadTheDocs&#39; style.&quot;</span><span class="p">)</span>
+
+    <span class="n">_install_requires</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="s1">&#39;sphinx &gt;= 1.4&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;epydoc &gt;= 3.0&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">_packages</span> <span class="o">=</span> <span class="n">_packages_sdk</span>
+
+<span class="n">_test_suite</span> <span class="o">=</span> <span class="s2">&quot;tests.CallCase&quot;</span>
+
+<span class="n">__no_install_requires</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">if</span> <span class="s1">&#39;--no-install-requires&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+    <span class="n">__no_install_requires</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;--no-install-requires&#39;</span><span class="p">)</span>
+
+<span class="n">__offline</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="k">if</span> <span class="s1">&#39;--offline&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
+    <span class="n">__offline</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">__no_install_requires</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;--offline&#39;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__no_install_requires</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;# Changed to offline mode, ignore install dependencies completely.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;# Requires appropriate PYTHONPATH.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;# Ignored dependencies are:&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ir</span> <span class="ow">in</span> <span class="n">_install_requires</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;#   &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ir</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+    <span class="n">_install_requires</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">class</span> <span class="nc">setuplibx</span><span class="p">(</span><span class="n">setuplib</span><span class="o">.</span><span class="n">setuplib</span><span class="o">.</span><span class="n">SetupListEntryPointsX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;For pre-installation, and test and debug of setuplib.</span>
+<span class="sd">    Standard application sshould use the provided entry points. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="n">setuplib</span><span class="o">.</span><span class="n">setuplib</span><span class="o">.</span><span class="n">SetupListEntryPointsX</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">build_docx</span><span class="p">(</span><span class="n">setupdocx</span><span class="o">.</span><span class="n">build_docx</span><span class="o">.</span><span class="n">BuildDocX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;For pre-installation, and test and debug of setuplib. </span>
+<span class="sd">    Standard application sshould use the provided entry points. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="n">setupdocx</span><span class="o">.</span><span class="n">build_docx</span><span class="o">.</span><span class="n">BuildDocX</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">install_docx</span><span class="p">(</span><span class="n">setupdocx</span><span class="o">.</span><span class="n">install_docx</span><span class="o">.</span><span class="n">InstallDocX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;For pre-installation, and test and debug of setuplib. </span>
+<span class="sd">    Standard application sshould use the provided entry points. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="n">setupdocx</span><span class="o">.</span><span class="n">install_docx</span><span class="o">.</span><span class="n">InstallDocX</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">dist_docx</span><span class="p">(</span><span class="n">setupdocx</span><span class="o">.</span><span class="n">dist_docx</span><span class="o">.</span><span class="n">DistDocX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;For pre-installation, and test and debug of setuplib. </span>
+<span class="sd">    Standard application sshould use the provided entry points. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="n">setupdocx</span><span class="o">.</span><span class="n">dist_docx</span><span class="o">.</span><span class="n">DistDocX</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">build_apidoc</span><span class="p">(</span><span class="n">setupdocx</span><span class="o">.</span><span class="n">build_apidoc</span><span class="o">.</span><span class="n">BuildApidocX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;For pre-installation, and test and debug of setuplib. </span>
+<span class="sd">    Standard application sshould use the provided entry points. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="n">setupdocx</span><span class="o">.</span><span class="n">build_apidoc</span><span class="o">.</span><span class="n">BuildApidocX</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">build_apiref</span><span class="p">(</span><span class="n">setupdocx</span><span class="o">.</span><span class="n">build_apiref</span><span class="o">.</span><span class="n">BuildApirefX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;For pre-installation, and test and debug of setuplib. </span>
+<span class="sd">    Standard application sshould use the provided entry points. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="n">setupdocx</span><span class="o">.</span><span class="n">build_apiref</span><span class="o">.</span><span class="n">BuildApirefX</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">testx</span><span class="p">(</span><span class="n">setuptestx</span><span class="o">.</span><span class="n">testx</span><span class="o">.</span><span class="n">TestX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;For pre-installation, and test and debug of setuplib. </span>
+<span class="sd">    Standard application sshould use the provided entry points. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="n">setuptestx</span><span class="o">.</span><span class="n">testx</span><span class="o">.</span><span class="n">TestX</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">)</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># see setup.py for remaining parameters</span>
+<span class="c1">#</span>
+<span class="n">setuptools</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span>
+    <span class="n">author</span><span class="o">=</span><span class="n">_author</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="n">_author_email</span><span class="p">,</span>
+    <span class="n">cmdclass</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;build_apidoc&#39;</span><span class="p">:</span> <span class="n">build_apidoc</span><span class="p">,</span>
+        <span class="s1">&#39;build_apiref&#39;</span><span class="p">:</span> <span class="n">build_apiref</span><span class="p">,</span>
+        <span class="s1">&#39;build_docx&#39;</span><span class="p">:</span> <span class="n">build_docx</span><span class="p">,</span>
+        <span class="s1">&#39;dist_docx&#39;</span><span class="p">:</span> <span class="n">dist_docx</span><span class="p">,</span>
+        <span class="s1">&#39;install_docx&#39;</span><span class="p">:</span> <span class="n">install_docx</span><span class="p">,</span>
+        <span class="s1">&#39;list_entry_points&#39;</span><span class="p">:</span> <span class="n">setuplibx</span><span class="p">,</span>
+        <span class="s1">&#39;testx&#39;</span><span class="p">:</span> <span class="n">testx</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">description</span><span class="o">=</span><span class="n">_description</span><span class="p">,</span>
+<span class="c1">#    distclass=setuplib.dist.Distribution,  # extends the standard help-display of setuptools</span>
+    <span class="n">download_url</span><span class="o">=</span><span class="n">_download_url</span><span class="p">,</span>
+    <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;distutils.commands&#39;</span><span class="p">:</span> <span class="s1">&#39;list_entry_points = setuplib.setuplib:SetupListEntryPointsX&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="n">_install_requires</span><span class="p">,</span>
+    <span class="n">license</span><span class="o">=</span><span class="n">_license</span><span class="p">,</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="n">_long_description</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="n">_name</span><span class="p">,</span>
+    <span class="n">package_data</span><span class="o">=</span><span class="n">_package_data</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">_packages</span><span class="p">,</span>
+    <span class="n">scripts</span><span class="o">=</span><span class="n">_scripts</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">_url</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="n">_version</span><span class="p">,</span>
+    <span class="n">zip_safe</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="download">
+<h2>6.3.2. Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="_static/setup.py">setup.py</a></p>
+</div>
+<div class="section" id="license">
+<h2>6.3.3. License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="_static/ArtisticLicense20.html">Artistic-License-2.0</a> + <a class="reference external" href="_static/licenses-amendments.txt">Forced-Fairplay-Constraints</a></p>
+</div>
+<div class="section" id="copyright">
+<h2>6.3.4. Copyright<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (C)2019 Arno-Can Uestuensoez &#64;Ingenieurbuero Arno-Can Uestuensoez</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="index_part_indices.html" class="btn btn-neutral float-right" title="7. Indices and tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setuplib.setuplib.html" class="btn btn-neutral float-left" title="6.2. setuplib.setuplib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
+      <span class="lastupdated">
+        Last updated on Dec 04, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6.2. setuplib.setuplib &mdash; setuplib  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6.3. setup.py" href="setup_py_src.html" />
+    <link rel="prev" title="6.1. setuplib.__init__" href="setuplib.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.36
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Shortcuts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">SetupLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_cockpit.html">apidoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_apiref_scaled.html">apiref</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index_part_abstract.html">1. Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_platform_support.html">2. Platform Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_blueprint.html">3. Blueprint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setuplib_cli.html">4. Command Line Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_documents.html">5. Documents</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index_modules.html">6. Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setuplib.html">6.1. setuplib.__init__</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6.2. setuplib.setuplib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-setuplib.setuplib">6.2.1. Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setuplistentrypointsx">6.2.2. SetupListEntryPointsX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#finalize-options">6.2.2.1. finalize_options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialize-options">6.2.2.2. initialize_options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run">6.2.2.3. run</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mydistributiondata">6.2.3. MyDistributionData</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#init">6.2.3.1. __init__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enumerate">6.2.3.2. enumerate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print">6.2.3.3. print</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-groups">6.2.3.4. print_groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-groups-list">6.2.3.5. print_groups_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-list">6.2.3.6. print_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#print-table">6.2.3.7. print_table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exceptions">6.2.4. Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="setup_py_src.html">6.3. setup.py</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_indices.html">7. Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_resources.html">8. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">9. Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">10. External References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_license.html">11. Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Application</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/index.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">setuplib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index_modules.html">6. Modules</a> &raquo;</li>
+        
+      <li>6.2. setuplib.setuplib</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/setuplib.setuplib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="shortcuttab"><div class="section" id="setuplib-setuplib">
+<h1>6.2. setuplib.setuplib<a class="headerlink" href="#setuplib-setuplib" title="Permalink to this headline">¶</a></h1>
+<p>For current help refer tot the online help:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Alternative implementations are:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>
+<span class="n">jython</span>  <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>  <span class="c1"># requires special install of setuptools, refer to the manuals</span>
+<span class="n">pypy</span>    <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>
+
+<span class="n">ipw</span><span class="o">.</span><span class="n">exe</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>  <span class="c1"># IronPython on Windows</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>With current output:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Options</span> <span class="k">for</span> <span class="s1">&#39;setuplib&#39;</span> <span class="n">command</span><span class="p">:</span>
+  <span class="o">--</span><span class="n">debug</span> <span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="p">)</span>           <span class="n">Raises</span> <span class="n">degree</span> <span class="n">of</span> <span class="n">debug</span> <span class="n">traces</span> <span class="n">of</span> <span class="n">current</span> <span class="n">context</span><span class="o">.</span>
+                         <span class="n">Supports</span> <span class="n">repetition</span><span class="o">.</span> <span class="n">Each</span> <span class="n">raises</span> <span class="n">the</span> <span class="n">debug</span> <span class="n">verbosity</span>
+                         <span class="n">level</span> <span class="n">of</span> <span class="n">the</span> <span class="n">context</span> <span class="n">by</span> <span class="n">one</span><span class="o">.</span>
+  <span class="o">--</span><span class="n">exit</span> <span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">)</span>            <span class="n">Exit</span> <span class="n">after</span> <span class="n">command</span> <span class="s1">&#39;setuplib&#39;</span> <span class="n">immediately</span><span class="p">,</span> <span class="n">ignore</span>
+                         <span class="n">following</span><span class="o">.</span> <span class="n">Default</span> <span class="p">:</span><span class="o">=</span> <span class="n">off</span><span class="o">.</span>
+  <span class="o">--</span><span class="nb">filter</span>               <span class="n">Define</span> <span class="n">a</span> <span class="nb">filter</span><span class="p">,</span> <span class="k">for</span> <span class="n">details</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">manual</span><span class="o">.</span> <span class="n">See</span>
+                         <span class="s1">&#39;--filter=help. Default: &#39;&#39;</span>
+  <span class="o">--</span><span class="nb">format</span> <span class="p">(</span><span class="o">-</span><span class="n">f</span><span class="p">)</span>          <span class="n">Define</span> <span class="n">display</span> <span class="nb">format</span><span class="o">.</span> <span class="n">See</span> <span class="s1">&#39;--format=help. Default:</span>
+                         <span class="s1">&#39;name,module_name,dist.egg_info:::fname&#39;</span>
+  <span class="o">--</span><span class="n">group</span> <span class="p">(</span><span class="o">-</span><span class="n">g</span><span class="p">)</span>           <span class="n">Set</span> <span class="n">group</span> <span class="k">for</span> <span class="n">scan</span><span class="p">,</span> <span class="s1">&#39;--group=none&#39;</span> <span class="n">scans</span> <span class="nb">all</span><span class="o">.</span> <span class="n">See</span>
+                         <span class="s1">&#39;PyPA.io&#39;</span><span class="o">.</span><span class="n">Default</span><span class="p">:</span> <span class="s1">&#39;distutils.commands&#39;</span>
+  <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">missing</span> <span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="p">)</span>  <span class="n">Ignore</span> <span class="n">errors</span> <span class="n">due</span> <span class="n">to</span> <span class="n">missing</span> <span class="n">components</span><span class="p">,</span> <span class="ow">and</span>
+                         <span class="k">continue</span><span class="o">.</span>  <span class="n">For</span> <span class="n">example</span> <span class="ow">in</span> <span class="n">case</span> <span class="n">of</span> <span class="n">missing</span> <span class="n">an</span>
+                         <span class="n">optional</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="kc">False</span><span class="o">.</span>
+  <span class="o">--</span><span class="n">layout</span>               <span class="n">Define</span> <span class="n">display</span> <span class="n">layout</span><span class="o">.</span> <span class="n">See</span> <span class="s1">&#39;--format=help&#39;</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span>
+                         <span class="n">table</span>
+  <span class="o">--</span><span class="n">long</span> <span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">)</span>            <span class="n">List</span> <span class="n">long</span> <span class="nb">format</span><span class="p">,</span> <span class="n">similar</span> <span class="n">to</span> <span class="n">shell</span> <span class="n">command</span> <span class="s1">&#39;ls -l&#39;</span><span class="o">.</span>
+                         <span class="n">Default</span><span class="p">:</span> <span class="n">off</span>
+  <span class="o">--</span><span class="n">quiet</span> <span class="p">(</span><span class="o">-</span><span class="n">q</span><span class="p">)</span>           <span class="n">Suppress</span> <span class="n">display</span> <span class="n">including</span> <span class="n">warnings</span><span class="o">.</span> <span class="n">Display</span> <span class="n">error</span>
+                         <span class="n">messages</span> <span class="n">only</span><span class="o">.</span><span class="n">Default</span><span class="p">:</span> <span class="n">off</span>
+  <span class="o">--</span><span class="n">search</span><span class="o">-</span><span class="n">path</span> <span class="p">(</span><span class="o">-</span><span class="n">P</span><span class="p">)</span>     <span class="n">Set</span> <span class="n">the</span> <span class="n">search</span> <span class="n">path</span> <span class="k">for</span> <span class="n">requested</span> <span class="n">resources</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span>
+                         <span class="s1">&#39;sys.path&#39;</span>
+  <span class="o">--</span><span class="n">sort</span>                 <span class="n">Sort</span> <span class="n">a</span> <span class="n">specified</span> <span class="n">field</span> <span class="n">number</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="o">--</span><span class="n">verbose</span> <span class="p">(</span><span class="o">-</span><span class="n">v</span><span class="p">)</span>         <span class="n">Raises</span> <span class="n">verbosity</span> <span class="n">of</span> <span class="n">current</span> <span class="n">context</span><span class="o">.</span> <span class="n">Supports</span>
+                         <span class="n">repetition</span><span class="o">.</span> <span class="n">Each</span> <span class="n">raises</span> <span class="n">the</span> <span class="n">command</span> <span class="n">verbosity</span> <span class="n">level</span>
+                         <span class="n">of</span> <span class="n">the</span> <span class="n">context</span> <span class="n">by</span> <span class="n">one</span><span class="o">.</span> <span class="n">The</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">defined</span> <span class="n">by</span> <span class="n">the</span>
+                         <span class="k">global</span> <span class="n">option</span> <span class="n">defined</span> <span class="ow">in</span> <span class="s1">&#39;Distribution&#39;</span><span class="o">.</span> <span class="n">Refer</span> <span class="n">to</span> <span class="n">the</span>
+                         <span class="n">manuals</span> <span class="k">for</span> <span class="n">the</span> <span class="n">special</span> <span class="n">behaviour</span> <span class="n">when</span> <span class="n">used</span> <span class="k">as</span> <span class="n">either</span>
+                         <span class="n">a</span> <span class="k">global</span> <span class="n">option</span><span class="p">(</span><span class="n">start</span> <span class="s1">&#39;verbose=1&#39;</span><span class="p">),</span> <span class="ow">or</span> <span class="k">as</span> <span class="n">a</span> <span class="n">command</span>
+                         <span class="n">context</span> <span class="n">option</span><span class="p">(</span><span class="n">start</span> <span class="s1">&#39;verbose=0&#39;</span><span class="p">)</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span><span class="o">=</span><span class="mf">1.</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="module-setuplib.setuplib">
+<span id="module"></span><h2>6.2.1. Module<a class="headerlink" href="#module-setuplib.setuplib" title="Permalink to this headline">¶</a></h2>
+<p>Setuplib subcommand ‘ENUMERATE’.
+Enumerate available commands based on ‘pkt_resources’.
+Supports parameters and filters.</p>
+</div>
+<div class="section" id="setuplistentrypointsx">
+<h2>6.2.2. SetupListEntryPointsX<a class="headerlink" href="#setuplistentrypointsx" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="setuplib.setuplib.SetupListEntryPointsX">
+<em class="property">class </em><code class="descclassname">setuplib.setuplib.</code><code class="descname">SetupListEntryPointsX</code><span class="sig-paren">(</span><em>dist</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#SetupListEntryPointsX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.SetupListEntryPointsX" title="Permalink to this definition">¶</a></dt>
+<dd><p>List available entry points.</p>
+</dd></dl>
+
+<div class="section" id="finalize-options">
+<span id="spec-setuplistentrypointsx-finalize-options"></span><h3>6.2.2.1. finalize_options<a class="headerlink" href="#finalize-options" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.SetupListEntryPointsX.finalize_options">
+<code class="descclassname">SetupListEntryPointsX.</code><code class="descname">finalize_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#SetupListEntryPointsX.finalize_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.SetupListEntryPointsX.finalize_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializae the API of ‘lis’.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="initialize-options">
+<span id="spec-setuplistentrypointsx-initialize-options"></span><h3>6.2.2.2. initialize_options<a class="headerlink" href="#initialize-options" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.SetupListEntryPointsX.initialize_options">
+<code class="descclassname">SetupListEntryPointsX.</code><code class="descname">initialize_options</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#SetupListEntryPointsX.initialize_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.SetupListEntryPointsX.initialize_options" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the API entrypoints and data of the command ‘list’.</p>
+<p>REMARK: verbose and debug are encapsulated/hidden by distutils.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="run">
+<span id="spec-setuplistentrypointsx-run"></span><h3>6.2.2.3. run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.SetupListEntryPointsX.run">
+<code class="descclassname">SetupListEntryPointsX.</code><code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#SetupListEntryPointsX.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.SetupListEntryPointsX.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates documents.
+Calls the defined and activated wrapper scripts.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="mydistributiondata">
+<h2>6.2.3. MyDistributionData<a class="headerlink" href="#mydistributiondata" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="setuplib.setuplib.MyDistributionData">
+<em class="property">class </em><code class="descclassname">setuplib.setuplib.</code><code class="descname">MyDistributionData</code><span class="sig-paren">(</span><em>distribution</em>, <em>task</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#MyDistributionData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.MyDistributionData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="init">
+<span id="spec-mydistributiondata-init"></span><h3>6.2.3.1. __init__<a class="headerlink" href="#init" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.MyDistributionData.__init__">
+<code class="descclassname">MyDistributionData.</code><code class="descname">__init__</code><span class="sig-paren">(</span><em>distribution</em>, <em>task</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#MyDistributionData.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.MyDistributionData.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__init__(…) initializes x; see help(type(x)) for signature</p>
+</dd></dl>
+
+</div>
+<div class="section" id="enumerate">
+<span id="spec-mydistributiondata-enumerate"></span><h3>6.2.3.2. enumerate<a class="headerlink" href="#enumerate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.MyDistributionData.enumerate">
+<code class="descclassname">MyDistributionData.</code><code class="descname">enumerate</code><span class="sig-paren">(</span><em>task</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#MyDistributionData.enumerate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.MyDistributionData.enumerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls <em>pkg_resources</em> and caches the results.
+The cached data is queried later for details required
+by the extended list and display commands.</p>
+<p>The caching happens here only, which comprises the flat
+data cache of all entry points and the additional
+categorized cache of selective sets for later selection
+filters.</p>
+<p>The centralized preparation of the data for later filtering
+eases the data handling significantly by moderate use of
+additional resources.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>self</strong> – The current instance of this class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Results in the member variable:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">ep_cache</span>
+</pre></div>
+</div>
+<p>The content is a <em>dict</em> containing the iterated
+entry points with the <em>&lt;ep&gt;.name</em> as key.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pass-through</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="print">
+<span id="spec-mydistributiondata-print"></span><h3>6.2.3.3. print<a class="headerlink" href="#print" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.MyDistributionData.print">
+<code class="descclassname">MyDistributionData.</code><code class="descname">print</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#MyDistributionData.print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.MyDistributionData.print" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the requested data.</p>
+<p>The printout is again processed in two levels.
+- print:</p>
+<blockquote>
+<div><p>Prepares the record data for the appropriate format.</p>
+<p>Calls the inteface:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">print_</span><span class="o">&lt;</span><span class="nb">format</span><span class="o">&gt;</span><span class="p">(</span><span class="n">outlist</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">task</span><span class="p">)</span>
+
+<span class="n">outlist</span> <span class="p">:</span><span class="o">=</span> <span class="n">The</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">resulting</span> <span class="n">keys</span> <span class="n">within</span> <span class="n">the</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">ep_cache</span><span class="o">*.</span>
+
+<span class="n">index</span> <span class="p">:</span><span class="o">=</span> <span class="n">The</span> <span class="n">sprocessed</span><span class="o">/</span><span class="nb">sorted</span> <span class="nb">list</span> <span class="n">of</span> <span class="o">*</span><span class="p">(</span><span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">#index)* mapping</span>
+         <span class="n">of</span> <span class="n">utlist</span> <span class="n">to</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">ep_cache</span><span class="o">*.</span>
+
+<span class="n">task</span> <span class="p">:</span><span class="o">=</span> <span class="n">The</span> <span class="n">parameters</span> <span class="n">of</span> <span class="n">the</span> <span class="n">current</span> <span class="n">task</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">print_table</span><span class="p">(</span><span class="n">outlist</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">task</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>print_&lt;format&gt;:</dt>
+<dd>Prints out the records of the selcted output format.</dd>
+</dl>
+</li>
+</ul>
+<p>Uses object data from <em>self</em>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="print-groups">
+<span id="spec-mydistributiondata-print-groups"></span><h3>6.2.3.4. print_groups<a class="headerlink" href="#print-groups" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.MyDistributionData.print_groups">
+<code class="descclassname">MyDistributionData.</code><code class="descname">print_groups</code><span class="sig-paren">(</span><em>outlist</em>, <em>index</em>, <em>task</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#MyDistributionData.print_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.MyDistributionData.print_groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print ‘–list-groups’ output based on pre-filtered data.
+Thus the complete set of filters processed in enumerate
+are applicable.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="print-groups-list">
+<span id="spec-mydistributiondata-print-groups-list"></span><h3>6.2.3.5. print_groups_list<a class="headerlink" href="#print-groups-list" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.MyDistributionData.print_groups_list">
+<code class="descclassname">MyDistributionData.</code><code class="descname">print_groups_list</code><span class="sig-paren">(</span><em>outlist</em>, <em>index</em>, <em>task</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#MyDistributionData.print_groups_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.MyDistributionData.print_groups_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print ‘–list-groups’ output based on pre-filtered data.
+Thus the complete set of filters are applicable.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="print-list">
+<span id="spec-mydistributiondata-print-list"></span><h3>6.2.3.6. print_list<a class="headerlink" href="#print-list" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.MyDistributionData.print_list">
+<code class="descclassname">MyDistributionData.</code><code class="descname">print_list</code><span class="sig-paren">(</span><em>outlist</em>, <em>index</em>, <em>task</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#MyDistributionData.print_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.MyDistributionData.print_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print list.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="print-table">
+<span id="spec-mydistributiondata-print-table"></span><h3>6.2.3.7. print_table<a class="headerlink" href="#print-table" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="setuplib.setuplib.MyDistributionData.print_table">
+<code class="descclassname">MyDistributionData.</code><code class="descname">print_table</code><span class="sig-paren">(</span><em>outlist</em>, <em>index</em>, <em>task</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/setuplib.html#MyDistributionData.print_table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.MyDistributionData.print_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print table.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="exceptions">
+<span id="spec-mydistributiondata-print-alias-list"></span><h2>6.2.4. Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="setuplib.setuplib.SetuplibCommandsxError">
+<em class="property">exception </em><code class="descclassname">setuplib.setuplib.</code><code class="descname">SetuplibCommandsxError</code><a class="reference internal" href="_modules/setuplib/setuplib.html#SetuplibCommandsxError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.setuplib.SetuplibCommandsxError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error on setuplib calls.</p>
+</dd></dl>
+
+</div></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="setup_py_src.html" class="btn btn-neutral float-right" title="6.3. setup.py" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setuplib.html" class="btn btn-neutral float-left" title="6.1. setuplib.__init__" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
+      <span class="lastupdated">
+        Last updated on Dec 04, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

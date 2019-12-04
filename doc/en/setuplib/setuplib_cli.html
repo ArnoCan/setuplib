@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Command Line Interface &mdash; setuplib  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Documents" href="index_part_documents.html" />
+    <link rel="prev" title="3. Blueprint" href="index_part_blueprint.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.36
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Shortcuts</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">SetupLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_cockpit.html">apidoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_apiref_scaled.html">apiref</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index_part_abstract.html">1. Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_platform_support.html">2. Platform Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_blueprint.html">3. Blueprint</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Command Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#synopsis">4.1. SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#options">4.2. OPTIONS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">4.3. COMMANDS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list-entry-points">4.3.1. list_entry_points</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#break-on-err">4.3.1.1. –break-on-err</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debug">4.3.1.2. –debug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#exit">4.3.1.3. –exit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filter">4.3.1.4. –filter=</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#format">4.3.1.5. –format=</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group">4.3.1.6. –group=</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ignore-missing">4.3.1.7. –ignore-missing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layout">4.3.1.8. –layout=</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-groups">4.3.1.9. –list-groups=</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#long">4.3.1.10. –long</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sort">4.3.1.11. –sort=</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verbose">4.3.1.12. –verbose</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#description">4.4. DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">4.5. EXAMPLES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#see-also">4.6. SEE ALSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">4.7. LICENSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#copyright">4.8. COPYRIGHT</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_documents.html">5. Documents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_modules.html">6. Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_indices.html">7. Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_resources.html">8. Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">9. Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">10. External References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_part_license.html">11. Licenses</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Application</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/index.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq/index.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">setuplib</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>4. Command Line Interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/setuplib_cli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-line-interface">
+<span id="setuplibcli"></span><h1>4. Command Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h1>
+<p>The package <em>setuplib</em> provides extensions for the standard
+command line interface of <em>setup.py</em> from the <em>setuptools</em> / <em>distutils</em>.</p>
+<ul>
+<li><p class="first"><em>setup.py</em> extension commands:</p>
+<blockquote>
+<div><style>
+   div.tmptab table.docutils col {
+      width: auto;
+   }
+   div.tmptab table td:nth-child(1) {
+      width: 30ch;
+   }
+</style>
+
+<div class="tmptab">
+<div class="overviewtab"><table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="52%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#setuplibcommands-list-entry-points"><span class="std std-ref">list_entry_points</span></a></td>
+<td>Display extended information on python packages and entry points.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></blockquote>
+</li>
+</ul>
+<div class="section" id="synopsis">
+<span id="setuplibclisynopsis"></span><h2>4.1. SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<pre class="literal-block">
+<a class="reference internal" href="setup_py_src.html#setup-py"><span class="std std-ref">setup.py</span></a> <a class="reference internal" href="#setuplibclioptions"><span class="std std-ref">[Global-OPTIONS]</span></a> <a class="reference internal" href="#setuplibcommands"><span class="std std-ref">[COMMANDS-with-context-OPTIONS]</span></a>
+</pre>
+</div>
+<div class="section" id="options">
+<span id="setuplibclioptions"></span><h2>4.2. OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="commands">
+<span id="setuplibcommands"></span><h2>4.3. COMMANDS<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p>The commands could be combined within one call and are than processed from-left-to-right.
+But be aware that each command is a separate module, thus only knows it’s own options,
+which are the right-hand side options util the following next command.</p>
+<blockquote>
+<div><div class="tmptab">
+<div class="overviewtab"><table border="1" class="docutils">
+<colgroup>
+<col width="74%" />
+<col width="26%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#setuplibcommands-list-entry-points"><span class="std std-ref">list_entry_points</span></a>   [<a class="reference internal" href="#list-entry-points-options"><span class="std std-ref">setuplib-options</span></a>]</td>
+<td>display commands and entry points</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div></blockquote>
+<div class="section" id="list-entry-points">
+<span id="setuplibcommands-list-entry-points"></span><span id="index-1"></span><h3>4.3.1. list_entry_points<a class="headerlink" href="#list-entry-points" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="list-entry-points-options"></span><div class="section" id="break-on-err">
+<span id="list-entry-points-options-break-on-err"></span><span id="index-2"></span><h4>4.3.1.1. –break-on-err<a class="headerlink" href="#break-on-err" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Exits the build process on first error.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="k">break</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">error</span>
+
+<span class="c1"># default := False</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="debug">
+<span id="list-entry-points-options-debug"></span><span id="index-3"></span><h4>4.3.1.2. –debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>Raises degree of debug traces of current context. Supports repetition.
+Each raises the command verbosity level of the context by one.</div></blockquote>
+</div>
+<div class="section" id="exit">
+<span id="list-entry-points-options-exit"></span><span id="index-4"></span><h4>4.3.1.3. –exit<a class="headerlink" href="#exit" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Exit after command ‘setuplib’ immediately, ignore following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Default</span> <span class="p">:</span><span class="o">=</span> <span class="n">off</span><span class="o">.</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="filter">
+<span id="list-entry-points-options-filter"></span><span id="index-5"></span><h4>4.3.1.4. –filter=<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>A list of filters for one or more fields.
+The filter is applied to all records.
+The degin is kept simple, thus a few keywords are defined only.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">filter</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;</span><span class="nb">filter</span><span class="o">-</span><span class="n">rules</span><span class="o">&gt;</span>
+
+<span class="nb">filter</span><span class="o">-</span><span class="n">rules</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;</span><span class="nb">filter</span><span class="o">-</span><span class="n">rule</span><span class="o">&gt;</span> <span class="p">[;</span> <span class="p">[</span> <span class="o">&lt;</span><span class="n">LOGIC</span><span class="o">&gt;</span> <span class="p">;</span> <span class="p">]</span> <span class="o">&lt;</span><span class="nb">filter</span><span class="o">-</span><span class="n">rules</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="nb">filter</span><span class="o">-</span><span class="n">rule</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;</span><span class="n">fieldname</span><span class="o">&gt;</span> <span class="s1">&#39;:&#39;</span> <span class="o">&lt;</span><span class="n">python</span><span class="o">-</span><span class="n">re</span><span class="o">-</span><span class="n">expression</span><span class="o">&gt;</span>
+<span class="n">fieldname</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;a present field name&quot;</span>
+<span class="n">python</span><span class="o">-</span><span class="n">re</span><span class="o">-</span><span class="n">expression</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;a valid python regexpr&quot;</span>
+
+<span class="n">LOGIC</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span>
+     <span class="n">AND</span>    <span class="c1"># True if all match</span>
+   <span class="o">|</span> <span class="n">OR</span>     <span class="c1"># True if any matches</span>
+   <span class="o">|</span> <span class="n">NAND</span>   <span class="c1"># True if not all match</span>
+   <span class="o">|</span> <span class="n">NOR</span>    <span class="c1"># True if none match</span>
+   <span class="o">|</span> <span class="n">XOR</span>    <span class="c1"># True if one only matches</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The <em>–filter</em> option supports for one or more filter rules, where each is assigned to a given field.
+The filter rules are applied sequentially, by default with a resulting <em>AND</em> combination.
+The regular expressions are compiled by <em>re.compile()</em> and applied with the <em>re.search()</em> function.
+Records not matching all rules are dropped.</p>
+<p>Examples are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>  <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;dist.egg_info:Sphinx,module_name:quick&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>  <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;dist.egg_info:Sphinx;and;module_name:quick&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>  <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;dist.egg_info:Sphinx;or;module_name:quick&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>  <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;or;dist.egg_info:Sphinx;module_name:quick&#39;</span>
+</pre></div>
+</div>
+<p>The logic key is applied to the complete record, the position within the filter is arbitrary.
+The last occurance is the resulting  - LIFO.</p>
+<p>The filter is based on the <em>re</em> module, which performs a string search.
+This requires the nodes to be converted to strings before searchin for the filter pattern.
+The drawback for this method arises from the custom types, where the ‘<em>__str__</em>’ and/or
+‘<em>__repr__</em>’ mehods return not the value of the noded only, but for example the class with it’s
+parameters.
+For example the <em>EntryPoint</em> class of the base type of the <em>setuptools</em> returns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="fm">__repr__</span><span class="p">:</span> <span class="n">EntryPoint</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;virtualenv = virtualenv:main&#39;</span><span class="p">)</span>
+<span class="fm">__str__</span><span class="p">:</span>  <span class="n">virtualenv</span> <span class="o">=</span> <span class="n">virtualenv</span><span class="p">:</span><span class="n">main</span>
+</pre></div>
+</div>
+<p>In both cases the string is the prefixed, either by the ‘EntyrPoint.name’ attribute,
+or simply by the class name and the parser call <em>EntryPoint.parse(</em>.
+The ‘<em>re.search</em>’ still matches as a floating regurlar expression, but does not
+when restrictions such as position tags are included.</p>
+<p>Anyhow, this effects nodes of type custom class only, where the <em>__str__</em> method is
+returns more than the value only.
+The standard data types of <em>Python</em> work flawless.
+The remaining quality of resulting accuracy is still pretty favourible for
+the actual required applications and tasks.</p>
+<p>The <em>setuplib</em> utilizes the <em>__str__*</em>, just do not use on nodes which are
+not standard types, or have a custom <em>__str__</em> replacement:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;^[asd123]*&#39;</span>
+<span class="s1">&#39;[asd123]*$&#39;</span>
+<span class="s1">&#39;^[asd123]*$&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="format">
+<span id="list-entry-points-options-format"></span><span id="index-6"></span><h4>4.3.1.5. –format=<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Define display format parameters for current <a class="reference internal" href="#list-entry-points-options-layout"><span class="std std-ref">–layout</span></a>.
+The format specifier supports the selection of names and the handling of the resulting values.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">format</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;</span><span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">&gt;</span>
+
+<span class="n">output</span><span class="o">-</span><span class="n">entries</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span>
+     <span class="o">&lt;</span><span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="n">table</span><span class="o">&gt;</span>
+   <span class="o">|</span> <span class="o">&lt;</span><span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="nb">list</span><span class="o">&gt;</span>
+   <span class="o">|</span> <span class="o">&lt;</span><span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="n">json</span><span class="o">&gt;</span>
+   <span class="o">|</span> <span class="o">&lt;</span><span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="n">xml</span><span class="o">&gt;</span>
+   <span class="o">|</span> <span class="o">&lt;</span><span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="n">yaml</span><span class="o">&gt;</span>
+<span class="p">)</span>
+
+<span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="n">table</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;</span><span class="n">column</span><span class="o">-</span><span class="n">entry</span><span class="o">&gt;</span> <span class="p">[</span> <span class="s1">&#39;,&#39;</span> <span class="o">&lt;</span><span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="n">table</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="n">column</span><span class="o">-</span><span class="n">entry</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;</span><span class="n">field</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">[</span> <span class="s1">&#39;:&#39;</span> <span class="o">&lt;</span><span class="n">field</span><span class="o">-</span><span class="n">width</span><span class="o">&gt;</span> <span class="p">[</span> <span class="s1">&#39;:&#39;</span> <span class="o">&lt;</span><span class="n">width</span><span class="o">-</span><span class="n">overflow</span><span class="o">&gt;</span> <span class="p">[</span> <span class="s1">&#39;:&#39;</span> <span class="o">&lt;</span><span class="n">special</span><span class="o">-</span><span class="n">content</span><span class="o">-</span><span class="n">opt</span><span class="o">&gt;</span><span class="p">]]]</span>
+<span class="n">field</span><span class="o">-</span><span class="n">name</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;valid string of field name&quot;</span>
+<span class="n">field</span><span class="o">-</span><span class="n">width</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;the display size of the field contents, depends on other parameters&quot;</span>
+<span class="n">width</span><span class="o">-</span><span class="n">overflow</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;the behavior of field width processing&quot;</span>
+<span class="n">special</span><span class="o">-</span><span class="n">content</span><span class="o">-</span><span class="n">opt</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;specific context format opts &quot;</span>
+
+<span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="nb">list</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;</span><span class="nb">list</span><span class="o">-</span><span class="n">item</span><span class="o">-</span><span class="n">entry</span><span class="o">&gt;</span> <span class="p">[</span> <span class="s1">&#39;,&#39;</span> <span class="o">&lt;</span><span class="n">output</span><span class="o">-</span><span class="n">entries</span><span class="o">-</span><span class="nb">list</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="nb">list</span><span class="o">-</span><span class="n">item</span><span class="o">-</span><span class="n">entry</span> <span class="p">:</span><span class="o">=</span> <span class="o">&lt;</span><span class="n">field</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">[</span> <span class="s1">&#39;:&#39;</span> <span class="o">&lt;</span><span class="n">field</span><span class="o">-</span><span class="n">width</span><span class="o">-</span><span class="nb">list</span><span class="o">&gt;</span> <span class="p">[</span> <span class="s1">&#39;:&#39;</span> <span class="o">&lt;</span><span class="n">width</span><span class="o">-</span><span class="n">overflow</span><span class="o">-</span><span class="nb">list</span><span class="o">&gt;</span> <span class="p">[</span> <span class="s1">&#39;:&#39;</span> <span class="o">&lt;</span><span class="n">special</span><span class="o">-</span><span class="n">content</span><span class="o">-</span><span class="n">opt</span><span class="o">&gt;</span><span class="p">]]]</span>
+<span class="n">field</span><span class="o">-</span><span class="n">width</span><span class="o">-</span><span class="nb">list</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;ignored&quot;</span>
+<span class="n">width</span><span class="o">-</span><span class="n">overflow</span><span class="o">-</span><span class="nb">list</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;ignored&quot;</span>
+
+<span class="n">Default</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span><span class="n">module_name</span><span class="p">,</span><span class="n">dist</span><span class="o">.</span><span class="n">key</span>
+</pre></div>
+</div>
+<p>The detailed semantics of the fields are:</p>
+<ul>
+<li><p class="first"><strong>field-name</strong>:</p>
+<blockquote>
+<div><p>The name of the fied to be displayed. Valid field names are entity names below
+extension points. These are standard <em>Python</em> names with optional dotted object
+identifier notation. The field name could be used multiple times, which results
+in multiple display of the same value. Each could have different additional
+parameters. The support comprises all <em>Python</em> data types, for the path
+resolution and valid syntax entries see
+<em>yapydata.datatree.datatree.DataTree.__call__</em> <a class="reference internal" href="references.html#yapydata" id="id1">[yapydata]</a>.
+The field name serves also as the parameter for <a class="reference internal" href="#list-entry-points-options-sort"><span class="std std-ref">–sort</span></a>.
+The supported addressable container types are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span>
+<span class="nb">tuple</span><span class="p">,</span> <span class="nb">set</span><span class="p">,</span> <span class="nb">frozenset</span>
+</pre></div>
+</div>
+<p>Examples are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>
+<span class="n">module_name</span>
+
+<span class="n">dist</span>                          <span class="c1"># dispalys the __str__/__repr__ output</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">extras</span>                   <span class="c1"># displays the list</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">extras</span><span class="o">.</span><span class="mi">0</span>                 <span class="c1"># displays the first item in the list</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">egg_info</span>                 <span class="c1"># same as dist._provider.egg_info</span>
+
+<span class="n">dist</span><span class="o">.</span><span class="n">_provider</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">_provider</span><span class="o">.</span><span class="n">module_path</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">_provider</span><span class="o">.</span><span class="n">module_path</span>
+<span class="n">dist</span><span class="o">.</span><span class="n">_provider</span><span class="o">.</span><span class="n">egg_info</span>       <span class="c1"># same as dist.egg_info</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>field-width</strong>:</p>
+<p>Defines the width of displayed field contents. This may vary in it’s behavior and
+size in dependence of the defined <em>field-overflow</em>. A special meaning ha the value
+of ‘0’, which forces the <em>auto</em> mode for <em>field-overflow</em>.</p>
+</li>
+<li><p class="first"><strong>field-overflow</strong>:</p>
+<ul>
+<li><p class="first"><em>auto</em></p>
+<p>The field is set to the length of the value with the maximum size.
+The value is an initial proposal size, when longer values occur,
+the field width is adapted.</p>
+</li>
+<li><p class="first"><em>cr</em></p>
+<p>The field is cut at right end to the defined length.</p>
+</li>
+<li><p class="first"><em>cl</em></p>
+<p>The field is cut at start beginning at the defined length.</p>
+</li>
+<li><p class="first"><em>clip</em></p>
+<p>The field is folded to the defined length to the next line
+at right end.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>special-content-opt</strong>:</p>
+<ul>
+<li><p class="first"><em>fname</em></p>
+<p>Displays the file path name as the basename only.
+The option <em>–long</em> restores the display of the full file path name.</p>
+</li>
+<li><p class="first"><em>fabs</em></p>
+<p>Displays the file path name as the absolute path name.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>For example in case of a table:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">layout</span><span class="o">=</span><span class="n">table</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">name</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span><span class="n">module_name</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="n">cr</span><span class="p">,</span><span class="n">dist</span><span class="o">.</span><span class="n">key</span><span class="p">,</span><span class="n">dist</span><span class="o">.</span><span class="n">location</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="n">cl</span>
+</pre></div>
+</div>
+<p>The values of the example are set as:</p>
+<ul>
+<li><p class="first"><em>name:30</em>
+Sets a inital proposal to the variable field length in <em>auto</em> mode.</p>
+</li>
+<li><p class="first"><em>module_name:30:cr</em>
+The attribute <em>module_name</em> in the entry point instance.
+The fixed size if <em>30</em>, overflow is cut from the right side.</p>
+</li>
+<li><p class="first"><em>dist.key</em></p>
+<p>The attribute <em>dist.key</em> in the entry point instance.
+The size is adapted to the maximum size of present values.</p>
+</li>
+<li><p class="first"><em>dist.location:40:cl</em>
+The attribute <em>dist.location</em> in the entry point instance.
+The fixed size if <em>40</em>, overflow is cut from the left side.</p>
+</li>
+</ul>
+<p>It is possible to select special nodes, which are present in some entry points only.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">none</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span>
+</pre></div>
+</div>
+<p>This requires the handling of multiple aspects.</p>
+<ol class="arabic">
+<li><p class="first">First the default behavior in case of missing addressed nodes is to throw an exception.
+This happens here because the command <em>virtualenv</em> is present in exactly one entry point only.
+The behavior is controlled by the option ‘<em>–ignore-missing</em>’.
+This option suppresses the exception and just ignores missing fields.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">missing</span>
+</pre></div>
+</div>
+<p>or short:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span> <span class="o">--</span><span class="n">i</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">This leads to the printout of all nodes, including of those without the addressed node.
+Anyhow, it is in most cases not the target to see all nodes, but the selected one only.
+Thus a filter is required, in order to filter out the entries without <em>virtualenv</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span> <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;or;dist._ep_map.console_scripts.virtualenv:;&#39;</span>
+</pre></div>
+</div>
+<p>In this case the option <em>–ignore-missing</em> is no longer required, because the filter
+pre-selects only the present entry points.</p>
+</li>
+<li><p class="first">Another option is to preselct a <a class="reference internal" href="#list-entry-points-options-group"><span class="std std-ref">group</span></a>, in this case <em>virtualenv</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">virtualenv</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span>
+</pre></div>
+</div>
+<p>In this case the not additional filter and ignore options are required, because this group
+contains one item only.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">virtualenv</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="group">
+<span id="list-entry-points-options-group"></span><span id="index-7"></span><h4>4.3.1.6. –group=<a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Sets the <em>group</em> of entry points for scan.
+See also “Entry points specification” <a class="reference internal" href="references.html#pypa" id="id2">[PYPA]</a> and <a class="reference internal" href="references.html#pep376" id="id3">[PEP376]</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span>
+     <span class="s1">&#39;none&#39;</span>
+   <span class="o">|</span> <span class="s1">&#39;help&#39;</span>
+   <span class="o">|</span> <span class="o">&lt;</span><span class="n">valid</span><span class="o">-</span><span class="n">group</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="p">)</span>
+<span class="n">none</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;scans for all known groups&quot;</span>
+<span class="n">valid</span><span class="o">-</span><span class="n">group</span><span class="o">-</span><span class="n">name</span> <span class="p">:</span><span class="o">=</span>  <span class="s2">&quot;valid group name in accrodance to [PEP376]_ and [PYPA]_&quot;</span>
+
+<span class="n">help</span> <span class="p">:</span><span class="o">=</span> <span class="s2">&quot;display a list of all present groups, see also &#39;--list-groups&#39;&quot;</span>
+
+<span class="n">Default</span><span class="p">:</span> <span class="s1">&#39;distutils.commands&#39;</span>
+</pre></div>
+</div>
+<p>Call examples are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">none</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">distutils</span><span class="o">.</span><span class="n">commands</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">setuplib</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="ignore-missing">
+<span id="list-entry-points-options-ignore-missing"></span><span id="index-8"></span><h4>4.3.1.7. –ignore-missing<a class="headerlink" href="#ignore-missing" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Ignore errors due to missing components, and continue.
+For example in case of missing an optional.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Default</span><span class="p">:</span> <span class="kc">False</span><span class="o">.</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="layout">
+<span id="list-entry-points-options-layout"></span><span id="index-9"></span><h4>4.3.1.8. –layout=<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Define display layout.
+See ‘–format=help’.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">,</span> <span class="nb">list</span>
+<span class="n">json</span><span class="p">,</span> <span class="n">xml</span><span class="p">,</span> <span class="n">yaml</span><span class="p">,</span> <span class="n">csv</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="list-groups">
+<span id="list-entry-points-options-list-groups"></span><span id="index-10"></span><h4>4.3.1.9. –list-groups=<a class="headerlink" href="#list-groups" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Displays a list of groups with optional registered commands by the additional
+options.
+The standard call displays the current available groups by their names only.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">list</span><span class="o">-</span><span class="n">groups</span> <span class="o">--</span><span class="n">long</span>
+</pre></div>
+</div>
+<p>The option <a class="reference internal" href="#list-entry-points-options-long"><span class="std std-ref">–long</span></a> adds the registered items.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">list</span><span class="o">-</span><span class="n">groups</span> <span class="o">--</span><span class="n">long</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">list</span><span class="o">-</span><span class="n">groups</span> <span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+<p>The repetition of the <a class="reference internal" href="#list-entry-points-options-long"><span class="std std-ref">–long / -l</span></a> option raises the
+adjustment of the output format.</p>
+<ul class="simple">
+<li>‘-l’ simply displays the additional commands</li>
+<li>‘-l -l’ displays the additional commands with adjustment to the keys within the group</li>
+<li>‘-l -l -l’ displays the additional commands with adjustment to the keys of all groups</li>
+</ul>
+<p>The same information could be displayed by direct attribute access via the
+<a class="reference internal" href="#list-entry-points-options-format"><span class="std std-ref">–format</span></a> option.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">none</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;dist._ep_map&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">none</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;dist._ep_map.console_scripts&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">none</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;dist._ep_map.console_scripts.virtualenv&#39;</span>
+</pre></div>
+</div>
+<p>The display via the <a class="reference internal" href="#list-entry-points-options-format"><span class="std std-ref">–format</span></a> option is
+not recommended, because it accesses the internal data, which is defined
+by a method API.</p>
+</div></blockquote>
+</div>
+<div class="section" id="long">
+<span id="list-entry-points-options-long"></span><span id="index-11"></span><h4>4.3.1.10. –long<a class="headerlink" href="#long" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>List long format, similar to shell command ‘ls -l’.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">long</span> <span class="o">|</span> <span class="o">-</span><span class="n">l</span>
+
+<span class="n">Default</span><span class="p">:</span> <span class="n">off</span>
+</pre></div>
+</div>
+<p>Supports repetition, which raises the detail level.
+In some cases avoids some mismatches for extremmely different sizes
+of the displayed items, e.g. for table views.</p>
+</div></blockquote>
+</div>
+<div class="section" id="sort">
+<span id="list-entry-points-options-sort"></span><span id="index-12"></span><h4>4.3.1.11. –sort=<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Sort the output data by a specified field name.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Default</span><span class="p">:</span> <span class="n">name</span>
+</pre></div>
+</div>
+<p>Examples are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">sort</span><span class="o">=</span><span class="n">name</span>
+<span class="o">--</span><span class="n">sort</span><span class="o">=</span><span class="n">module_name</span>
+<span class="o">--</span><span class="n">sort</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">egg_info</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="verbose">
+<span id="list-entry-points-options-verbose"></span><span id="index-13"></span><h4>4.3.1.12. –verbose<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div>Verbose flag for the local command context.
+Each repetition raises the level.</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="description">
+<h2>4.4. DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The call interface <em>setuplib</em> provides command line extensions for
+the interface of <em>setup.py</em>.</p>
+<p>The addressing of common python nodes is based on the library <em>yapyutils</em>, for additional
+infomation on abstract addressing capabilities of <em>Python</em> data structures see <a class="reference internal" href="references.html#yapydata" id="id4">[yapydata]</a>.</p>
+<p>The command <em>setuplib</em> is registered as an entry point, could be used as an imported class
+for local custom classes.</p>
+</div>
+<div class="section" id="examples">
+<span id="setuplibexamples"></span><h2>4.5. EXAMPLES<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Some additional call examples.</p>
+<blockquote id="id5">
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span>  <span class="n">setuplib</span> <span class="o">--</span><span class="n">sort</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">key</span>  <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist.key,dist._provider.egg_info&#39;</span> <span class="o">--</span><span class="n">layout</span><span class="o">=</span><span class="n">table</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span>  <span class="n">setuplib</span> <span class="o">--</span><span class="n">sort</span><span class="o">=</span><span class="n">dist</span><span class="o">.</span><span class="n">key</span>  <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist.key,dist.egg_info&#39;</span> <span class="o">--</span><span class="n">layout</span><span class="o">=</span><span class="n">table</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">layout</span><span class="o">=</span><span class="n">table</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="n">module_name</span><span class="p">,</span><span class="n">dist</span><span class="o">.</span><span class="n">egg_info</span><span class="p">:::</span><span class="n">fname</span>
+
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>
+
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>  <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;dist.egg_info:Sphinx,module_name:quick&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>  <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;dist.egg_info:Sphinx;and;module_name:quick&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>  <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;dist.egg_info:Sphinx;or;module_name:quick&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>  <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;or;dist.egg_info:Sphinx;module_name:quick&#39;</span>
+
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">layout</span><span class="o">=</span><span class="n">table</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">name</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span><span class="n">module_name</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="n">cr</span><span class="p">,</span><span class="n">dist</span><span class="o">.</span><span class="n">key</span><span class="p">,</span><span class="n">dist</span><span class="o">.</span><span class="n">location</span><span class="p">:</span><span class="mi">40</span><span class="p">:</span><span class="n">cl</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">none</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">missing</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span> <span class="o">--</span><span class="n">i</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span> <span class="o">--</span><span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;or;dist._ep_map.console_scripts.virtualenv:;&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">virtualenv</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;name,dist._ep_map.console_scripts.virtualenv&#39;</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">virtualenv</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="see-also">
+<h2>4.6. SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">Quick Start</span></a>, <a class="reference internal" href="setup_py_src.html#setuppysrc"><span class="std std-ref">setup.py</span></a>,
+<a class="reference internal" href="#setuplibcli"><span class="std std-ref">setuplib</span></a>,
+<a class="reference internal" href="references.html#setuptools" id="id6">[setuptools]</a>, <a class="reference internal" href="references.html#distutils" id="id7">[distutils]</a></div></blockquote>
+</div>
+<div class="section" id="license">
+<h2>4.7. LICENSE<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><a class="reference internal" href="ModifiedArtisticLicense20.html#modified-artistic-license-20"><span class="std std-ref">modified Artistic License</span></a> = <a class="reference internal" href="ModifiedArtisticLicense20.html#artistic-license-20"><span class="std std-ref">ArtisticLicense20</span></a> + <a class="reference internal" href="ModifiedArtisticLicense20.html#licenses-amendments"><span class="std std-ref">Peer-to-Peer-Fairplay-amendments</span></a></p>
+<p>For configuration files only:</p>
+<blockquote>
+<div><a class="reference internal" href="MITLicense.html#mit-license"><span class="std std-ref">MIT License</span></a></div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="copyright">
+<h2>4.8. COPYRIGHT<a class="headerlink" href="#copyright" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Copyright (C)2019 Arno-Can Uestuensoez &#64;Ingenieurbuero Arno-Can Uestuensoez</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="index_part_documents.html" class="btn btn-neutral float-right" title="5. Documents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index_part_blueprint.html" class="btn btn-neutral float-left" title="3. Blueprint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
+      <span class="lastupdated">
+        Last updated on Dec 04, 2019.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

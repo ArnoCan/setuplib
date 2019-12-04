@@ -1,0 +1,20 @@
+**Product Data**
+
+* MISSION=Support library functions for extensions and entry points of setuptools / distutils.
+
+* AUTHOR=Arno-Can Uestuensoez
+
+* PROJECT=setuplib
+
+* COPYRIGHT=(C)2019 Arno-Can Uestuensoez
+
+* LICENSE=Artistic-License-2.0 + Forced-Fairplay-Constraints
+
+* VERSION=0.1.6
+
+* RELEASE=0.1.6
+
+* STATUS=Unknown
+
+* BUILDDATE=2019.12.04-03:22
+
