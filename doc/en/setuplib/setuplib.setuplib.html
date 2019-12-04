@@ -211,27 +211,27 @@
 <h1>6.2. setuplib.setuplib<a class="headerlink" href="#setuplib-setuplib" title="Permalink to this headline">¶</a></h1>
 <p>For current help refer tot the online help:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">list_entry_points</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>Alternative implementations are:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>
-<span class="n">jython</span>  <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>  <span class="c1"># requires special install of setuptools, refer to the manuals</span>
-<span class="n">pypy</span>    <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">list_entry_points</span> <span class="o">--</span><span class="n">help</span>
+<span class="n">jython</span>  <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">list_entry_points</span> <span class="o">--</span><span class="n">help</span>  <span class="c1"># requires special install of setuptools, refer to the manuals</span>
+<span class="n">pypy</span>    <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">list_entry_points</span> <span class="o">--</span><span class="n">help</span>
 
-<span class="n">ipw</span><span class="o">.</span><span class="n">exe</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">setuplib</span> <span class="o">--</span><span class="n">help</span>  <span class="c1"># IronPython on Windows</span>
+<span class="n">ipw</span><span class="o">.</span><span class="n">exe</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">list_entry_points</span> <span class="o">--</span><span class="n">help</span>  <span class="c1"># IronPython on Windows</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>With current output:</p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Options</span> <span class="k">for</span> <span class="s1">&#39;setuplib&#39;</span> <span class="n">command</span><span class="p">:</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Options</span> <span class="k">for</span> <span class="s1">&#39;list_entry_points&#39;</span> <span class="n">command</span><span class="p">:</span>
   <span class="o">--</span><span class="n">debug</span> <span class="p">(</span><span class="o">-</span><span class="n">d</span><span class="p">)</span>           <span class="n">Raises</span> <span class="n">degree</span> <span class="n">of</span> <span class="n">debug</span> <span class="n">traces</span> <span class="n">of</span> <span class="n">current</span> <span class="n">context</span><span class="o">.</span>
                          <span class="n">Supports</span> <span class="n">repetition</span><span class="o">.</span> <span class="n">Each</span> <span class="n">raises</span> <span class="n">the</span> <span class="n">debug</span> <span class="n">verbosity</span>
                          <span class="n">level</span> <span class="n">of</span> <span class="n">the</span> <span class="n">context</span> <span class="n">by</span> <span class="n">one</span><span class="o">.</span>
-  <span class="o">--</span><span class="n">exit</span> <span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">)</span>            <span class="n">Exit</span> <span class="n">after</span> <span class="n">command</span> <span class="s1">&#39;setuplib&#39;</span> <span class="n">immediately</span><span class="p">,</span> <span class="n">ignore</span>
+  <span class="o">--</span><span class="n">exit</span> <span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">)</span>            <span class="n">Exit</span> <span class="n">after</span> <span class="n">command</span> <span class="s1">&#39;list_entry_points&#39;</span> <span class="n">immediately</span><span class="p">,</span> <span class="n">ignore</span>
                          <span class="n">following</span><span class="o">.</span> <span class="n">Default</span> <span class="p">:</span><span class="o">=</span> <span class="n">off</span><span class="o">.</span>
   <span class="o">--</span><span class="nb">filter</span>               <span class="n">Define</span> <span class="n">a</span> <span class="nb">filter</span><span class="p">,</span> <span class="k">for</span> <span class="n">details</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">manual</span><span class="o">.</span> <span class="n">See</span>
                          <span class="s1">&#39;--filter=help. Default: &#39;&#39;</span>

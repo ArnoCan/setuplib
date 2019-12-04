@@ -13,27 +13,27 @@ For current help refer tot the online help:
 
    .. parsed-literal::
    
-      python setup.py setuplib --help
+      python setup.py list_entry_points --help
 
 Alternative implementations are:
 
    .. parsed-literal::
    
-      ipython setup.py setuplib --help
-      jython  setup.py setuplib --help  # requires special install of setuptools, refer to the manuals 
-      pypy    setup.py setuplib --help
+      ipython setup.py list_entry_points --help
+      jython  setup.py list_entry_points --help  # requires special install of setuptools, refer to the manuals 
+      pypy    setup.py list_entry_points --help
 
-      ipw.exe setup.py setuplib --help  # IronPython on Windows
+      ipw.exe setup.py list_entry_points --help  # IronPython on Windows
 
 With current output:
 
    .. parsed-literal::
    
-      Options for 'setuplib' command:
+      Options for 'list_entry_points' command:
         --debug (-d)           Raises degree of debug traces of current context.
                                Supports repetition. Each raises the debug verbosity
                                level of the context by one.
-        --exit (-e)            Exit after command 'setuplib' immediately, ignore
+        --exit (-e)            Exit after command 'list_entry_points' immediately, ignore
                                following. Default := off.
         --filter               Define a filter, for details refer to the manual. See
                                '--filter=help. Default: ''

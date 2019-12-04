@@ -38,5 +38,5 @@ The *setupdocxs* extends the *setuptools* for the required commands and options.
 
    .. parsed-literal::
    
-      python :ref:`setup.py <SETUPPYSRC>` :ref:`setuplib <setuplibSETUPLIB>`
+      python :ref:`setup.py <SETUPPYSRC>` :ref:`list_entry_points <setuplibSETUPLIB>`
       
