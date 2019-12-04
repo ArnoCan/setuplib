@@ -1,16 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Distribute 'setuplib', the missing commands for *setup.py*.
+"""Distribute 'setuplib', the core library for extensions of *setuptools*.
+Provides detailed information on Python packages and their entry points.
 
-Use this file itself as an example.
-
-Additional Args:
-    setuplib: 
-        Provide information on available commands.
-
-   testx: 
-       Runs PyUnit tests by discovery of 'tests'.
-
-Additional Options:
+Additional local options for this *setup.py* module:
    --sdk:
        Requires sphinx, epydoc, and dot-graphics.
 
@@ -27,9 +19,7 @@ from __future__ import absolute_import
 from __future__ import print_function
 
 try:
-    #
-    # optional remote debug only
-    #
+    # optional remote debug
     from rdbg import start        # load a slim bootstrap module
     start.start_remote_debug()    # check whether '--rdbg' option is present, if so accomplish bootstrap
 except:
@@ -46,33 +36,30 @@ import setuptools
 # setup extension modules
 #
 
+import yapyutils.files.utilities
+
+
+#***
+# the following parts are required as for the setuplib itself
+# others may use the entry points
+#***
+
 # setup library functions
-import setuplib
-import setuplib.dist
 import setuplib.setuplib
 
-# loaded commands
-import setuplib.list
-import setuplib.show
-
-# available commands
-import setuplib.enum
-import setuplib.info
-
+#***********************************************************************
+# REMARK:
+#   documents and regression tests
 #
-# setup extension modules
+#   the classes are required here for setuplib only
+#   others should use the entry point, so do not need to import classes
 #
-import setupdocx
-
-# documents
-from setupdocx.build_docx import BuildDocX
-from setupdocx.dist_docx import DistDocX
-from setupdocx.install_docx import InstallDocX
-from setupdocx.build_apiref import BuildApirefX
-from setupdocx.build_apidoc import BuildApidocX
-
-# unittests
-from setuptestx.testx import TestX
+#***********************************************************************
+import setupdocx.build_docx
+import setupdocx.dist_docx
+import setupdocx.install_docx
+import setupdocx.build_apiref
+import setupdocx.build_apidoc
 
 # unittests
 import setuptestx.testx
@@ -84,7 +71,7 @@ __license__ = "Artistic-License-2.0 + Forced-Fairplay-Constraints"
 __copyright__ = "Copyright (C) 2015-2019 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez"
 __uuid__ = "239b0bf7-674a-4f53-a646-119f591af806"
 
-__vers__ = [0, 1, 2, ]
+__vers__ = [0, 1, 6, ]
 __version__ = "%02d.%02d.%03d" % (__vers__[0], __vers__[1], __vers__[2],)
 __release__ = "%d.%d.%d" % (__vers__[0], __vers__[1], __vers__[2],) + '-rc0'
 __status__ = 'beta'
@@ -127,10 +114,10 @@ _author_email = __author_email__
 _license = __license__
 """license"""
 
-#_packages = setuptools.find_packages(include=['setuplib', 'setuplib.*', 'setup'])
-_packages = setuptools.find_packages('setuplib')
+#_packages = setuptools.find_packages('setuplib')
+_packages = ['setuplib',]
 """Python packages to be installed."""
-#_packages_sdk = setuptools.find_packages(include=['setuplib'])
+
 _packages_sdk = _packages
 
 _scripts = [
@@ -152,45 +139,30 @@ _download_url = "https://sourceforge.net/projects/setuplib/files/"
 
 
 _install_requires = [
-    'pythonids >= 1.0',
-    'yapyutils >= 1.0',
-    'sourceinfo >= 1.0',
+    'pythonids >= 0.1.0',
+    'yapyutils >= 0.1.0',
+    'yapydata >= 0.1.0',
+    'sourceinfo >= 0.1.0',
 ]
 """prerequired non-standard packages"""
 
 
-_description = (
-    "Support core library and management functions for the family of 'setuplib' - extensions "
-    "for setuptools / distutils."
-)
+_description = "Support library functions for extensions and entry points of setuptools / distutils."
 
 _README = os.path.join(os.path.dirname(__file__), 'README.md')
 _long_description = open(_README).read()
 """detailed description of this package"""
 
 
-_epydoc_api_patchlist = [
-    'shortcuts.html',
-    'config.html',
-    'os_categorization.html',
-]
-"""Patch list of Sphinx documents for the insertion of links to API documentation."""
-
-_profiling_components = _mypath + os.sep + 'bin' + os.sep + '*.py ' + _mypath + os.sep + __pkgname__ + os.sep + '*.py'
-"""Components to be used for the creation of profiling information for Epydoc."""
-
-_doc_subpath = 'en' + os.path.sep + 'html' + os.path.sep + 'man7'
-"""Relative path under the documents directory."""
-
 if __sdk:  # pragma: no cover
     try:
         import sphinx_rtd_theme  # @UnusedImport
     except:
-        sys.stderr.write("WARNING: Cannot import package 'sphinx_rtd_theme', cannot create local 'ReadTheDocs' style.")
+        sys.stderr.write(
+            "WARNING: Cannot import package 'sphinx_rtd_theme', cannot create local 'ReadTheDocs' style.")
 
     _install_requires.extend(
         [
-            'pythonids',
             'sphinx >= 1.4',
             'epydoc >= 3.0',
         ]
@@ -211,10 +183,6 @@ if '--offline' in sys.argv:
     __no_install_requires = True
     sys.argv.remove('--offline')
 
-# # Help on addons.
-# if '--help-setuplib' in sys.argv:
-#     setuplib.usage('setup')
-#     sys.exit(0)
 
 if __no_install_requires:
     print("#")
@@ -229,181 +197,58 @@ if __no_install_requires:
 
 
 class setuplibx(setuplib.setuplib.SetupListEntryPointsX):
-    """Defines additional text processing.
+    """For pre-installation, and test and debug of setuplib.
+    Standard application sshould use the provided entry points. 
     """
-    
     def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
         setuplib.setuplib.SetupListEntryPointsX.__init__(self, *args, **kargs)
 
 
-class listx(setuplib.list.ListX):
-    """Defines the package name.
+class build_docx(setupdocx.build_docx.BuildDocX):
+    """For pre-installation, and test and debug of setuplib. 
+    Standard application sshould use the provided entry points. 
     """
-
     def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        setuplib.list.ListX.__init__(self, *args, **kargs)
+        setupdocx.build_docx.BuildDocX.__init__(self, *args, **kargs)
 
 
-class showx(setuplib.show.ShowX):
-    """Defines the package name.
+class install_docx(setupdocx.install_docx.InstallDocX):
+    """For pre-installation, and test and debug of setuplib. 
+    Standard application sshould use the provided entry points. 
     """
-
     def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        setuplib.show.ShowX.__init__(self, *args, **kargs)
+        setupdocx.install_docx.InstallDocX.__init__(self, *args, **kargs)
 
 
-class enumx(setuplib.enum.EnumX):
-    """Defines the package name.
+class dist_docx(setupdocx.dist_docx.DistDocX):
+    """For pre-installation, and test and debug of setuplib. 
+    Standard application sshould use the provided entry points. 
     """
-
     def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        setuplib.enum.EnumX.__init__(self, *args, **kargs)
+        setupdocx.dist_docx.DistDocX.__init__(self, *args, **kargs)
 
 
-class infox(setuplib.info.InfoX):
-    """Defines the package name.
+class build_apidoc(setupdocx.build_apidoc.BuildApidocX):
+    """For pre-installation, and test and debug of setuplib. 
+    Standard application sshould use the provided entry points. 
     """
-
     def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        setuplib.info.InfoX.__init__(self, *args, **kargs)
+        setupdocx.build_apidoc.BuildApidocX.__init__(self, *args, **kargs)
 
-class build_docx(BuildDocX):
-    """Defines additional text processing.
+
+class build_apiref(setupdocx.build_apiref.BuildApirefX):
+    """For pre-installation, and test and debug of setuplib. 
+    Standard application sshould use the provided entry points. 
     """
-    
     def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        BuildDocX.__init__(self, *args, **kargs)
-
-    def join_sphinx_mod_sphinx(self, dirpath):
-        """Integrates links for *epydoc* into the the sidebar of the default style,
-        and adds links to *sphinx* into the output of *epydoc*. This method needs to 
-        be adapted to the actual used theme and templates by the application. Thus
-        no generic method is supported, but a call interface. The call is activated
-        when the option *--apiref* is set.  
-
-        Adds the following entries before the "Table of Contents" to 
-        the *sphinx* document:
-
-        * API
-          Before "Previous topic", "Next topic"
-
-        .. note::
-
-           This method is subject to be changed.
-           Current version is hardcoded, see documents.
-           Following releases will add customization.
-        
-        Args:
-            **dirpath**:
-                Directory path to the file 'index.html'.
-        
-        Returns;
-            None
-
-        Raises:
-            None
-                
-        """
-    
-        if self.verbose > 0:
-            print('\nStart post-create document patches\n')
-        
-        pt = re.compile(r'(<span class="codelink"><a href=".*?' + str(self.name) + '[^#]*?[#][^"]+">source[&]nbsp;code</a></span>)')
-
-        def rpfunc(match):
-            rp  = r'[<span class="codelink"><a href="../api.html#" target="_top">api</a></span>]&nbsp;'
-            rp += match.group(1)
-            return rp
-        
-        for flst in os.walk(dirpath + '/epydoc/'):
-            for fn in flst[2]:
-                if fn[-5:] == '.html':
-                    if self.verbose > 0:
-                        print("process: " + str(fn))
-                    setupdocx.sed(flst[0]+os.path.sep+fn, pt, rpfunc)
-
-
-class install_docx(InstallDocX):
-    """Defines the package name.
-    """
-
-    def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        InstallDocX.__init__(self, *args, **kargs)
-
-
-class dist_docx(DistDocX):
-    """Defines the package name.
-    """
-
-    def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        DistDocX.__init__(self, *args, **kargs)
-
-
-class build_apidoc(BuildApidocX):
-    """Defines the package name.
-    """
-
-    def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        BuildApidocX.__init__(self, *args, **kargs)
-
-
-class build_apiref(BuildApirefX):
-    """Defines the package name.
-    """
-
-    def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
-        BuildApirefX.__init__(self, *args, **kargs)
+        setupdocx.build_apiref.BuildApirefX.__init__(self, *args, **kargs)
 
 
 class testx(setuptestx.testx.TestX):
-    """Defines the package name.
+    """For pre-installation, and test and debug of setuplib. 
+    Standard application sshould use the provided entry points. 
     """
-
     def __init__(self, *args, **kargs):
-        self.name = _name
-        self.copyright = __copyright__
-        self.status = __status__
-        self.release = __release__
         setuptestx.testx.TestX.__init__(self, *args, **kargs)
 
 
@@ -418,17 +263,16 @@ setuptools.setup(
         'build_apiref': build_apiref,
         'build_docx': build_docx,
         'dist_docx': dist_docx,
-        'enum': enumx,
-        'info': infox,
         'install_docx': install_docx,
-        'list': listx,
-        'setuplib': setuplibx,
-        'show': showx,
+        'list_entry_points': setuplibx,
         'testx': testx,
     },
     description=_description,
-    distclass=setuplib.dist.Distribution,  # extends the standard help-display of setuptools
+#    distclass=setuplib.dist.Distribution,  # extends the standard help-display of setuptools
     download_url=_download_url,
+    entry_points={
+        'distutils.commands': 'list_entry_points = setuplib.setuplib:SetupListEntryPointsX',
+    },
     install_requires=_install_requires,
     license=_license,
     long_description=_long_description,
@@ -440,15 +284,6 @@ setuptools.setup(
     version=_version,
     zip_safe=False,
 )
-
-#
-# REMINDER: the own help of setuplib is a common global option 
-#
-# if '--help' in sys.argv:
-#     print()
-#     print("Help on provided package extensions by " + str(_name))
-#     print("   --help-" + str(_name))
-#     print()
 
 sys.exit(0)
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Distribute 'setuplib', the core library for extensions of *setuptools*.
+Provides detailed information on Python packages and their entry points.
 
 Additional local options for this *setup.py* module:
    --sdk:
@@ -44,23 +45,24 @@ import yapyutils.files.utilities
 #***
 
 # setup library functions
-# import setuplib.setuplib
-from setuplib.setuplib import SetupListEntryPointsX
+import setuplib.setuplib
 
-# setup extension modules
-import setupdocx
-
-# documents
-from setupdocx.build_docx import BuildDocX
-from setupdocx.dist_docx import DistDocX
-from setupdocx.install_docx import InstallDocX
-from setupdocx.build_apiref import BuildApirefX
-from setupdocx.build_apidoc import BuildApidocX
+#***********************************************************************
+# REMARK:
+#   documents and regression tests
+#
+#   the classes are required here for setuplib only
+#   others should use the entry point, so do not need to import classes
+#
+#***********************************************************************
+import setupdocx.build_docx
+import setupdocx.dist_docx
+import setupdocx.install_docx
+import setupdocx.build_apiref
+import setupdocx.build_apidoc
 
 # unittests
 import setuptestx.testx
-from setuptestx.testx import TestX
-
 
 
 __author__ = 'Arno-Can Uestuensoez'
@@ -69,7 +71,7 @@ __license__ = "Artistic-License-2.0 + Forced-Fairplay-Constraints"
 __copyright__ = "Copyright (C) 2015-2019 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez"
 __uuid__ = "239b0bf7-674a-4f53-a646-119f591af806"
 
-__vers__ = [0, 1, 5, ]
+__vers__ = [0, 1, 6, ]
 __version__ = "%02d.%02d.%03d" % (__vers__[0], __vers__[1], __vers__[2],)
 __release__ = "%d.%d.%d" % (__vers__[0], __vers__[1], __vers__[2],) + '-rc0'
 __status__ = 'beta'
@@ -116,7 +118,6 @@ _license = __license__
 _packages = ['setuplib',]
 """Python packages to be installed."""
 
-print("4TEST:" + str(_packages))
 _packages_sdk = _packages
 
 _scripts = [
@@ -162,7 +163,6 @@ if __sdk:  # pragma: no cover
 
     _install_requires.extend(
         [
-            'pythonids',
             'sphinx >= 1.4',
             'epydoc >= 3.0',
         ]
@@ -196,52 +196,52 @@ if __no_install_requires:
     _install_requires = []
 
 
-class setuplibx(SetupListEntryPointsX):
+class setuplibx(setuplib.setuplib.SetupListEntryPointsX):
     """For pre-installation, and test and debug of setuplib.
     Standard application sshould use the provided entry points. 
     """
     def __init__(self, *args, **kargs):
-        SetupListEntryPointsX.__init__(self, *args, **kargs)
+        setuplib.setuplib.SetupListEntryPointsX.__init__(self, *args, **kargs)
 
 
-class build_docx(BuildDocX):
+class build_docx(setupdocx.build_docx.BuildDocX):
     """For pre-installation, and test and debug of setuplib. 
     Standard application sshould use the provided entry points. 
     """
     def __init__(self, *args, **kargs):
-        BuildDocX.__init__(self, *args, **kargs)
+        setupdocx.build_docx.BuildDocX.__init__(self, *args, **kargs)
 
 
-class install_docx(InstallDocX):
+class install_docx(setupdocx.install_docx.InstallDocX):
     """For pre-installation, and test and debug of setuplib. 
     Standard application sshould use the provided entry points. 
     """
     def __init__(self, *args, **kargs):
-        InstallDocX.__init__(self, *args, **kargs)
+        setupdocx.install_docx.InstallDocX.__init__(self, *args, **kargs)
 
 
-class dist_docx(DistDocX):
+class dist_docx(setupdocx.dist_docx.DistDocX):
     """For pre-installation, and test and debug of setuplib. 
     Standard application sshould use the provided entry points. 
     """
     def __init__(self, *args, **kargs):
-        DistDocX.__init__(self, *args, **kargs)
+        setupdocx.dist_docx.DistDocX.__init__(self, *args, **kargs)
 
 
-class build_apidoc(BuildApidocX):
+class build_apidoc(setupdocx.build_apidoc.BuildApidocX):
     """For pre-installation, and test and debug of setuplib. 
     Standard application sshould use the provided entry points. 
     """
     def __init__(self, *args, **kargs):
-        BuildApidocX.__init__(self, *args, **kargs)
+        setupdocx.build_apidoc.BuildApidocX.__init__(self, *args, **kargs)
 
 
-class build_apiref(BuildApirefX):
+class build_apiref(setupdocx.build_apiref.BuildApirefX):
     """For pre-installation, and test and debug of setuplib. 
     Standard application sshould use the provided entry points. 
     """
     def __init__(self, *args, **kargs):
-        BuildApirefX.__init__(self, *args, **kargs)
+        setupdocx.build_apiref.BuildApirefX.__init__(self, *args, **kargs)
 
 
 class testx(setuptestx.testx.TestX):
@@ -271,7 +271,6 @@ setuptools.setup(
 #    distclass=setuplib.dist.Distribution,  # extends the standard help-display of setuptools
     download_url=_download_url,
     entry_points={
-        'distutils.commands': 'lsep = setuplib.setuplib:SetupListEntryPointsX',
         'distutils.commands': 'list_entry_points = setuplib.setuplib:SetupListEntryPointsX',
     },
     install_requires=_install_requires,

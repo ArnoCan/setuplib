@@ -1,8 +1,6 @@
 setuplib
 ========
 
-**THIS IS A NIGHTLY PRE_BUILD FOR THE TEST OF THE BUILD CHAIN.**
-
 The *setuplib* package provides core functions for the query of meta information 
 and installation repositories of *Python* packages. It provides query and filter 
 options on the installed packages and the available information, while displaying
@@ -42,13 +40,13 @@ Project Data
 
 * PROJECT: 'setuplib'
 
-* MISSION: Command extension of *setup.py* for multi-platform and documentation deployments.
+* MISSION: Support library functions for extensions and entry points of setuptools / distutils.
 
 * VERSION: 00.01
 
-* RELEASE: 00.01.005
+* RELEASE: 00.01.006
 
-* STATUS: alpha
+* STATUS: beta
 
 * AUTHOR: Arno-Can Uestuensoez
 

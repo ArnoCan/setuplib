@@ -19,7 +19,7 @@ on Python software packages and the contained entry points.
    
       .. figurewrap:: _static/systems-ids.png
          :width-latex: 250
-         :width: 400
+         :width: 300
          :target-html: _static/systems-ids.png
          :align: center
          
@@ -30,7 +30,7 @@ on Python software packages and the contained entry points.
 
    .. figurewrap:: _static/systems-ids.png
       :width-latex: 250
-      :width: 450
+      :width: 300
       :target-html: _static/systems-ids.png
       :align: center
       
