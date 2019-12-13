@@ -190,22 +190,16 @@ This includes various options for filtering and custom output layouts.</p>
 </pre></div>
 </div>
 <p>The option <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-long"><span class="std std-ref">–long</span></a> or <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-long"><span class="std std-ref">-l</span></a> displays the full path names of the actual filesystem location:</p>
-<pre class="literal-block">
-python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-long"><span class="std std-ref">–long</span></a>
-python setup.py list_entry_points:ref:<cite>-l &lt;list_entry_points_OPTIONS_long&gt;</cite>
-</pre>
-<p>The current available <em>groups</em> <a class="reference internal" href="references.html#pypa" id="id1">[PYPA]</a> can be displayed by:</p>
-<pre class="literal-block">
-python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-group"><span class="std std-ref">–group=help</span></a>
-</pre>
+<pre class="literal-block">python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-long"><span class="std std-ref">–long</span></a>
+python setup.py list_entry_points:ref:<cite>-l &lt;list_entry_points_OPTIONS_long&gt;</cite></pre>
+<p>The current available <em>groups</em> <a class="reference internal" href="references.html#pypa" id="id1"><span>[PYPA]</span></a> can be displayed by:</p>
+<pre class="literal-block">python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-group"><span class="std std-ref">–group=help</span></a></pre>
 <p>or with details and optional filtering:</p>
-<pre class="literal-block">
-python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-list-groups"><span class="std std-ref">–list-groups</span></a>           # group names
+<pre class="literal-block">python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-list-groups"><span class="std std-ref">–list-groups</span></a>           # group names
 python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-list-groups"><span class="std std-ref">–list-groups</span></a> -l        # 1x adds commands
 python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-list-groups"><span class="std std-ref">–list-groups</span></a> -l -l     # 2x adds adjusted groups
-python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-list-groups"><span class="std std-ref">–list-groups</span></a> -l -l -l  # 3x adds adjusted over all groups
-</pre>
-<p>The current available console scripts <a class="reference internal" href="references.html#pypa" id="id2">[PYPA]</a> could be easily listed by:</p>
+python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-list-groups"><span class="std std-ref">–list-groups</span></a> -l -l -l  # 3x adds adjusted over all groups</pre>
+<p>The current available console scripts <a class="reference internal" href="references.html#pypa" id="id2"><span>[PYPA]</span></a> could be easily listed by:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">list_entry_points</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span>
 <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">list_entry_points</span> <span class="o">--</span><span class="n">group</span><span class="o">=</span><span class="n">console_scripts</span> <span class="o">-</span><span class="n">l</span>  <span class="c1"># displays the full path name</span>
 </pre></div>
@@ -213,14 +207,12 @@ python setup.py list_entry_points <a class="reference internal" href="setuplib_c
 <p>The layout of the output display of the data could be selected by the <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-layout"><span class="std std-ref">–layout</span></a> option.
 Current release supports <em>list</em> and <em>table</em>, soon available are more such as <em>JSON</em>, <em>XML</em>, <em>YAML</em>,
 <em>CSV</em>, <em>INI</em>, and <em>.properties</em>.</p>
-<pre class="literal-block">
-python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-layout"><span class="std std-ref">–layout=list</span></a>
-python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-layout"><span class="std std-ref">–layout=list</span></a>
-</pre>
+<pre class="literal-block">python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-layout"><span class="std std-ref">–layout=list</span></a>
+python setup.py list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-layout"><span class="std std-ref">–layout=list</span></a></pre>
 <p>The additional parameter defining the details of the selected layout is the option <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-format"><span class="std std-ref">–format</span></a>.
 The format option defines the actual seletion of the resulting display.
 It supports for the selction of arbitrary addressable <em>Pyhton</em> data nodes as supported
-by the namebinding package <em>yapydata</em> with the subpackage <em>yapydata.datatree</em> <a class="reference internal" href="references.html#yapydata" id="id3">[yapydata]</a>.</p>
+by the namebinding package <em>yapydata</em> with the subpackage <em>yapydata.datatree</em> <a class="reference internal" href="references.html#yapydata" id="id3"><span>[yapydata]</span></a>.</p>
 <p>The specified node addresses are relative to the <em>EntryPoint</em> objects as provided by
 <em>pkg_resource</em> interface.
 The address is specified as a string in common ordinary dottet path notation.
@@ -245,14 +237,12 @@ with intermediate path nodes, and any type for terminal nodes as leafs.</p>
 <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">list_entry_points</span> <span class="o">--</span><span class="n">layout</span><span class="o">=</span><span class="n">table</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="n">name</span><span class="p">,</span><span class="n">module_name</span><span class="p">,</span><span class="n">dist</span><span class="o">.</span><span class="n">egg_info</span><span class="p">:::</span><span class="n">fname</span> <span class="o">--</span><span class="n">long</span>
 </pre></div>
 </div>
-<p>For further details <em>yapydata</em> <a class="reference internal" href="references.html#yapydata" id="id4">[yapydata]</a>, and
+<p>For further details <em>yapydata</em> <a class="reference internal" href="references.html#yapydata" id="id4"><span>[yapydata]</span></a>, and
 the options specification see <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-format"><span class="std std-ref">–format</span></a>.</p>
 <p>The presented order could be sorted for any valid field by the option <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-sort"><span class="std std-ref">–sort=dist.key</span></a>:</p>
-<pre class="literal-block">
-python setup.py  list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-sort"><span class="std std-ref">–sort=dist.key</span></a> --format='name,dist.key,dist._provider.module_path' --layout=table
+<pre class="literal-block">python setup.py  list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-sort"><span class="std std-ref">–sort=dist.key</span></a> --format='name,dist.key,dist._provider.module_path' --layout=table
 python setup.py  list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-sort"><span class="std std-ref">–sort=dist.key</span></a>  --format='name,dist.key,dist._provider.egg_info' --layout=table
-python setup.py  list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-sort"><span class="std std-ref">–sort=dist.key</span></a>  --format='name,dist.key,dist.egg_info' --layout=table
-</pre>
+python setup.py  list_entry_points <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-sort"><span class="std std-ref">–sort=dist.key</span></a>  --format='name,dist.key,dist.egg_info' --layout=table</pre>
 <p>The scanned data from <em>pkg_resource</em> could be further reduced by the option <a class="reference internal" href="setuplib_cli.html#list-entry-points-options-filter"><span class="std std-ref">–filter</span></a>.
 The filter provides <em>Python</em> regular expressions to be used by the interface <em>re.compile()</em>, and is applied here with
 the <em>re.search()</em> interface.
@@ -301,7 +291,7 @@ The following demonstrates the access to <em>console_scripts</em> of the groups 
     <p>
         &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
       <span class="lastupdated">
-        Last updated on Dec 04, 2019.
+        Last updated on Dec 13, 2019.
       </span>
 
     </p>

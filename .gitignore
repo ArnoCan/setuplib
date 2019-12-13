@@ -5,14 +5,6 @@
 #
 #volatile workspace storage
 #
-#
-.vsd
-.VSD
-.setenv-acue2.sh
-.setenv-acue3.sh
-.setenv.sh
-.setenv.bat
-
 /**/*~
 /**/*(Kopie)*
 /**/*(copy)*
@@ -21,10 +13,16 @@
 /**/backup/
 /**/tmp/
 
+*.vsd
+*.VSD
+setenv.sh
+setenv-acue2.sh
+setenv-acue3.sh
+
 #Python + stuptools + sphinx
 /**/build/
 /**/dist/
-/**/*.egg-info/
+/**/jsondata.egg-info/
 
 
 # by default these are copies only, the source are in components 
@@ -32,8 +30,6 @@
 /**/repos/
 /**/raw/
 
-# epydoc
-profile.out
 
 #
 # *** Dynamic data of specific tools/apps: ***
@@ -151,10 +147,6 @@ nosetests.xml
 
 # -> ignore dynamic eclipse data
 /**/RemoteSystemsTempFiles/
-/**/.settings/
-/**/.includepath
-/**/.pydevproject
-
 
 #allow context specific eclipse framework settings
 ide

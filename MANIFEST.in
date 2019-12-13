@@ -1,12 +1,21 @@
-#documentation
-#recursive-include doc/en/html/man3/setuplib *
+# README
+include README.md
 
-#Misc
-#include .gitignore
-#include ArtisticLicense20.html
-#include README.md
-#include callDocSphinx.sh
-#include licenses-amendments.txt
-#include setup.cfg
-#include setup.py
-#include dosrc/setuplib-64x64.png
+# License
+include LICENSE.txt
+include ArtisticLicense20.html
+include licenses-amendments.txt
+
+# setup
+include setup.py
+include setup.cfg
+
+
+# documentation
+recursive-include doc/en *
+
+# test cases and data
+recursive-include tests *
+recursive-include testdata *
+
+

@@ -4,7 +4,7 @@
 #
 
 # Python releases
-export SDK_PATH_NAMEDTUPLEDEFS=/local/hd1/home1/data/acue/rd/p-open-deploy/namedtupledefs/components/namedtupledefs3/
+export SDK_PATH_NAMEDTUPLEDEFS=/local/hd1/home1/data/acue/rd/p-open-deploy/namedtupledefs/components/namedtupledefs/
 
 # export SDK_PATH_SETUPLIB=/local/hd1/home1/data/acue/rd/p-open-deploy/setuplib/components/setuplib/
 export SDK_PATH_SETUPBASHX=/local/hd1/home1/data/acue/rd/p-open-deploy/setupbashx/components/setupbashx/
@@ -24,7 +24,7 @@ export SDK_PATH_FILESYSOBJECTS=/local/hd1/home1/data/acue/rd/p-open-deploy/files
 export SDK_PATH_JSONDATA=/local/hd1/home1/data/acue/rd/p-open-deploy/jsondata/components/pyjsondata/
 export SDK_PATH_MULTICONF=/local/hd1/home1/data/acue/rd/p-open-deploy/multiconf/components/pymulticonf/
 export SDK_PATH_PLATFORMIDS=/local/hd1/home1/data/acue/rd/p-open-deploy/platformids/components/pyplatformids/
-export SDK_PATH_PYTHONDISTIDS=/local/hd1/home1/data/acue/rd/p-open-deploy/pythonids/components/pypythonids/
+export SDK_PATH_PYTHONDISTIDS=/local/hd1/home1/data/acue/rd/p-open-deploy/pythonids/components/pythonids/
 export SDK_PATH_RDBG=/local/hd1/home1/data/acue/rd/p-open-deploy/rdbg/components/pyrdbg/
 export SDK_PATH_SOURCEINFO=/local/hd1/home1/data/acue/rd/p-open-deploy/sourceinfo/components/pysourceinfo/
 export SDK_PATH_YAPYUTILS=/local/hd1/home1/data/acue/rd/p-open-deploy/yapyutils/components/yapyutils/

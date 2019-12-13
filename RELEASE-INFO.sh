@@ -1,5 +1,5 @@
 # current release of the project
-RELEASE=00.01.010
+RELEASE=00.01.013
 
 # name of the project
 PROJECTNAME=setuplib

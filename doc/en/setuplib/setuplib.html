@@ -209,7 +209,7 @@
 <h3>6.1.2.1. help_on_user_options<a class="headerlink" href="#help-on-user-options" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="setuplib.__init__.help_on_user_options">
-<code class="descclassname">setuplib.__init__.</code><code class="descname">help_on_user_options</code><span class="sig-paren">(</span><em>uopt</em>, <em>uoptions</em>, <em>raw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/__init__.html#help_on_user_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.__init__.help_on_user_options" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">setuplib.__init__.</code><code class="sig-name descname">help_on_user_options</code><span class="sig-paren">(</span><em class="sig-param">uopt</em>, <em class="sig-param">uoptions</em>, <em class="sig-param">raw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/__init__.html#help_on_user_options"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.__init__.help_on_user_options" title="Permalink to this definition">¶</a></dt>
 <dd><p>Displays the standard option data as provided by the
 “distuitls” API variable ‘user_options’.</p>
 <p>The supported format is:</p>
@@ -219,12 +219,10 @@
 <span class="p">]</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>uopt</strong> – <p>User option:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uopt</strong> – <p>User option:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uopt</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span>
       <span class="o">&lt;</span><span class="n">user</span><span class="o">-</span><span class="n">option</span><span class="o">-</span><span class="n">long</span><span class="o">&gt;</span>
     <span class="o">|</span> <span class="o">&lt;</span><span class="n">user</span><span class="o">-</span><span class="n">option</span><span class="o">-</span><span class="n">short</span><span class="o">&gt;</span>
@@ -248,31 +246,25 @@
     <span class="c1"># production use is not recommended</span>
 </pre></div>
 </div>
-</li>
-<li><strong>uoptions</strong> – The options definition.</li>
-<li><strong>raw</strong> – If set to ‘True’, the original entry tuple is returned,
-else the formatted string for console display.</li>
+</p></li>
+<li><p><strong>uoptions</strong> – The options definition.</p></li>
+<li><p><strong>raw</strong> – If set to ‘True’, the original entry tuple is returned,
+else the formatted string for console display.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="docutils">
-<dt>Results:</dt>
-<dd>Return string reference to the defined help-string.</dd>
+</dd>
 </dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">SetupDocXError</span></code></li>
-<li><code class="xref py py-exc docutils literal notranslate"><span class="pre">pass-through</span></code></li>
+<dl class="simple">
+<dt>Results:</dt><dd><p>Return string reference to the defined help-string.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>SetupDocXError</strong> – </p></li>
+<li><p><strong>pass-through</strong> – </p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -280,28 +272,24 @@ else the formatted string for console display.</li>
 <h3>6.1.2.2. check_for_context_help<a class="headerlink" href="#check-for-context-help" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="setuplib.__init__.check_for_context_help">
-<code class="descclassname">setuplib.__init__.</code><code class="descname">check_for_context_help</code><span class="sig-paren">(</span><em>cmdobj</em>, <em>raw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/__init__.html#check_for_context_help"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.__init__.check_for_context_help" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">setuplib.__init__.</code><code class="sig-name descname">check_for_context_help</code><span class="sig-paren">(</span><em class="sig-param">cmdobj</em>, <em class="sig-param">raw=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/setuplib/__init__.html#check_for_context_help"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.__init__.check_for_context_help" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scans for any requested context help, if present returns either a formatted
 string for console display, or the reference to the raw help entry.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>cmdobj</strong> – The command object ‘distutils.cmd.Command’.</li>
-<li><strong>raw</strong> – If ‘True’ returns the raw entry. else a formatted
-string for console display.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cmdobj</strong> – The command object ‘distutils.cmd.Command’.</p></li>
+<li><p><strong>raw</strong> – If ‘True’ returns the raw entry. else a formatted
+string for console display.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The help entry, either raw, or as a formatted console string.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">pass-through</span></code></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The help entry, either raw, or as a formatted console string.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>pass-through</strong> – </p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -310,7 +298,7 @@ string for console display.</li>
 <h2>6.1.3. Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
 <dl class="exception">
 <dt id="setuplib.__init__.SetuplibError">
-<em class="property">exception </em><code class="descclassname">setuplib.__init__.</code><code class="descname">SetuplibError</code><a class="reference internal" href="_modules/setuplib/__init__.html#SetuplibError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.__init__.SetuplibError" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="sig-prename descclassname">setuplib.__init__.</code><code class="sig-name descname">SetuplibError</code><a class="reference internal" href="_modules/setuplib/__init__.html#SetuplibError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#setuplib.__init__.SetuplibError" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div></div>
@@ -338,7 +326,7 @@ string for console display.</li>
     <p>
         &copy; Copyright Copyright (C) 2016 Arno-Can Uestuensoez @Ingenieurbuero Arno-Can Uestuensoez
       <span class="lastupdated">
-        Last updated on Dec 04, 2019.
+        Last updated on Dec 13, 2019.
       </span>
 
     </p>
